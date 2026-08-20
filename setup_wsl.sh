@@ -1,5 +1,6 @@
 #!/bin/bash
 # QwiSense — WSL Setup Script
+#Run The script
 # Run this once inside WSL to set up your environment
 
 set -e
