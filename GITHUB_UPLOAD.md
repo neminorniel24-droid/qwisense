@@ -22,6 +22,7 @@ git config --global user.email "your_email@karunya.edu"
 
 ## Step 4 — Initialize git in your project folder
 ```bash
+
 cd ~/qwisense          # or wherever you placed the project
 git init
 git add .
