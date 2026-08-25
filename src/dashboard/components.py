@@ -446,3 +446,15 @@ def render_feature_count(count: int) -> None:
         raise ValueError("count must not be negative.")
 
     st.metric("Features", count)
+
+
+def render_latency(latency_ms: float | None) -> None:
+    """Render inference latency."""
+    if latency_ms is None:
+        st.metric("Latency", "—")
+        return
+
+    if latency_ms < 0:
+        raise ValueError("latency_ms must not be negative.")
+
+    st.metric("Latency", f"{latency_ms:.1f} ms")

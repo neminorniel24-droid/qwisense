@@ -244,3 +244,8 @@ def test_sensor_status_component_is_importable():
 def test_feature_count_component_is_importable():
     from src.dashboard.components import render_feature_count
     assert callable(render_feature_count)
+
+
+def test_latency_component_is_importable():
+    from src.dashboard.components import render_latency
+    assert callable(render_latency)
