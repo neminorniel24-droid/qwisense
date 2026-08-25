@@ -86,3 +86,29 @@ def test_hampel_filter_handles_short_signal():
 
     assert filtered.shape == signal.shape
     assert np.all(np.isfinite(filtered))
+
+
+def test_bandpass_filter_is_finite_for_valid_signal():
+    t = np.linspace(0, 2, 200)
+    signal = np.sin(2 * np.pi * 1.0 * t)
+
+    filtered = bandpass_filter(signal)
+
+    assert filtered.shape == signal.shape
+    assert np.all(np.isfinite(filtered))
+
+
+def test_bandpass_filter_respects_custom_sampling_rate():
+    rng = np.random.default_rng(42)
+    signal = rng.normal(size=300)
+
+    filtered = bandpass_filter(
+        signal,
+        lowcut=0.5,
+        highcut=3.0,
+        fs=150.0,
+        order=3,
+    )
+
+    assert filtered.shape == signal.shape
+    assert np.all(np.isfinite(filtered))
