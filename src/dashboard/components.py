@@ -635,3 +635,23 @@ def render_navigation_note(current_section: str) -> None:
         raise ValueError("current_section must not be empty.")
 
     st.caption(f"Current section: **{current_section}**")
+
+
+def render_signal_overview(
+    subcarriers: int = 52,
+    window_samples: int = 200,
+    sampling_rate: float = 100.0,
+) -> None:
+    """Render the main CSI signal overview."""
+    st.markdown("### 📡 Signal Overview")
+
+    cols = st.columns(3)
+
+    with cols[0]:
+        st.metric("Subcarriers", subcarriers)
+
+    with cols[1]:
+        st.metric("Window", f"{window_samples} samples")
+
+    with cols[2]:
+        st.metric("Sampling Rate", f"{sampling_rate:g} Hz")

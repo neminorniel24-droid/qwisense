@@ -352,3 +352,8 @@ def test_navigation_note_is_importable():
     from src.dashboard.components import render_navigation_note
 
     assert callable(render_navigation_note)
+
+
+def test_signal_overview_component_is_importable():
+    from src.dashboard.components import render_signal_overview
+    assert callable(render_signal_overview)
