@@ -167,3 +167,31 @@ def test_plot_comparison_returns_figure(tmp_path):
 
     import matplotlib.pyplot as plt
     plt.close(fig)
+
+
+def test_plot_confusion_matrix_saves_figure(tmp_path):
+    import matplotlib
+    matplotlib.use("Agg")
+
+    from src.classical.baseline import plot_confusion_matrix
+
+    cm = np.array([
+        [5, 1, 0, 0],
+        [0, 4, 1, 0],
+        [0, 0, 5, 1],
+        [0, 0, 1, 4],
+    ])
+
+    output = tmp_path / "confusion_matrix.png"
+
+    plot_confusion_matrix(
+        cm,
+        title="Test Confusion Matrix",
+        save_path=str(output),
+    )
+
+    assert output.exists()
+    assert output.stat().st_size > 0
+
+    import matplotlib.pyplot as plt
+    plt.close("all")
