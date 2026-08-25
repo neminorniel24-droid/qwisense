@@ -54,6 +54,27 @@ st.markdown(
         opacity: 0.65;
     }
 
+
+    .qwisense-kpi {
+        padding: 1rem 1.1rem;
+        border-radius: 14px;
+        border: 1px solid rgba(128, 128, 128, 0.22);
+        min-height: 95px;
+    }
+
+    .qwisense-kpi-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        opacity: 0.65;
+    }
+
+    .qwisense-kpi-value {
+        font-size: 1.45rem;
+        font-weight: 700;
+        margin-top: 0.35rem;
+    }
+
     .qwisense-status-value {
         font-size: 1.15rem;
         font-weight: 700;
@@ -70,6 +91,32 @@ st.markdown(
         <h1>📡 QwiSense</h1>
         <p>Quantum-enhanced WiFi human sensing and activity recognition</p>
     </div>
+
+st.markdown("### 📊 Sensing Overview")
+
+kpi_cols = st.columns(4)
+
+kpi_data = [
+    ("Activity", "Ready"),
+    ("Confidence", "—"),
+    ("Samples", "—"),
+    ("Model", "QwiSense"),
+]
+
+for column, (label, value) in zip(kpi_cols, kpi_data):
+    with column:
+        st.markdown(
+            f"""
+            <div class="qwisense-kpi">
+                <div class="qwisense-kpi-label">{label}</div>
+                <div class="qwisense-kpi-value">{value}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+st.markdown("")
+
     """,
     unsafe_allow_html=True,
 )
