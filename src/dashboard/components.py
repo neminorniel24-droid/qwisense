@@ -937,3 +937,11 @@ def render_signal_preview(values, title: str = "Signal Preview") -> None:
 
     st.markdown(f"### 📈 {title}")
     st.line_chart(list(values), use_container_width=True)
+
+
+def render_amplitude_preview(values) -> None:
+    """Render CSI amplitude data."""
+    render_signal_preview(
+        values,
+        title="CSI Amplitude",
+    )

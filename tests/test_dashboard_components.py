@@ -472,3 +472,9 @@ def test_signal_preview_is_importable():
     from src.dashboard.components import render_signal_preview
 
     assert callable(render_signal_preview)
+
+
+def test_amplitude_preview_is_importable():
+    from src.dashboard.components import render_amplitude_preview
+
+    assert callable(render_amplitude_preview)
