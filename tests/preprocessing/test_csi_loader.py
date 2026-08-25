@@ -42,3 +42,17 @@ def test_load_dataset_falls_back_to_synthetic(tmp_path):
     assert meta["n_samples"] == 20
     assert X.shape == (20, N_SUBCARRIERS, WINDOW_SAMPLES)
     assert y.shape == (20,)
+
+
+def test_activity_labels_are_complete():
+    assert LABELS == {
+        0: "Empty",
+        1: "Present",
+        2: "Walking",
+        3: "Fall",
+    }
+
+
+def test_window_configuration_is_consistent():
+    assert N_SUBCARRIERS == 52
+    assert WINDOW_SAMPLES == 200
