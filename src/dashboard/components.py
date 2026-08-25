@@ -128,3 +128,8 @@ def render_prediction_card(
         st.caption(f"Confidence: {confidence:.1%}")
     else:
         st.caption("Confidence unavailable")
+
+
+def render_model_badge(model_name: str) -> None:
+    """Render the active model name."""
+    st.caption(f"Active model: **{model_name}**")

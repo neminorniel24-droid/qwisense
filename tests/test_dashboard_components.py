@@ -62,3 +62,9 @@ def test_prediction_card_component_is_importable():
     from src.dashboard.components import render_prediction_card
 
     assert callable(render_prediction_card)
+
+
+def test_model_badge_component_is_importable():
+    from src.dashboard.components import render_model_badge
+
+    assert callable(render_model_badge)
