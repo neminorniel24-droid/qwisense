@@ -1397,3 +1397,11 @@ def render_page_title(title: str, subtitle: str = "") -> None:
 
     if subtitle:
         st.caption(subtitle)
+
+
+def render_breadcrumb(items: list[str]) -> None:
+    """Render dashboard breadcrumb navigation."""
+    if not items:
+        raise ValueError("items must not be empty.")
+
+    st.caption(" / ".join(items))
