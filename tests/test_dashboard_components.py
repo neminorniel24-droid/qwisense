@@ -422,3 +422,8 @@ def test_feature_summary_is_importable():
 def test_preprocessing_config_is_importable():
     from src.dashboard.components import render_preprocessing_config
     assert callable(render_preprocessing_config)
+
+
+def test_signal_mode_selector_is_importable():
+    from src.dashboard.components import render_signal_mode_selector
+    assert callable(render_signal_mode_selector)

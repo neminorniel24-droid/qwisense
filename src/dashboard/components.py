@@ -846,3 +846,12 @@ def render_preprocessing_config(
     )
 
     return normalize_value, detrend_value
+
+
+def render_signal_mode_selector() -> str:
+    """Select the CSI representation."""
+    return st.radio(
+        "Signal representation",
+        ["Amplitude", "Phase", "Magnitude"],
+        horizontal=True,
+    )
