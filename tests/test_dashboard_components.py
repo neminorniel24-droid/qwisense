@@ -402,3 +402,8 @@ def test_control_group_is_importable():
 def test_product_summary_is_importable():
     from src.dashboard.components import render_product_summary
     assert callable(render_product_summary)
+
+
+def test_signal_chart_header_is_importable():
+    from src.dashboard.components import render_signal_chart_header
+    assert callable(render_signal_chart_header)

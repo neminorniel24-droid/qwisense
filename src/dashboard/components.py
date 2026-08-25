@@ -784,3 +784,9 @@ def render_product_summary() -> None:
         recognition results from a single dashboard.
         """
     )
+
+
+def render_signal_chart_header(title: str = "CSI Signal") -> None:
+    """Render a signal-chart heading."""
+    st.markdown(f"### 📈 {title}")
+    st.caption("Wireless channel-state information visualization.")
