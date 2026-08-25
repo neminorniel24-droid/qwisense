@@ -621,3 +621,8 @@ def test_prediction_count_is_importable():
 def test_fall_count_is_importable():
     from src.dashboard.components import render_fall_count
     assert callable(render_fall_count)
+
+
+def test_walking_count_is_importable():
+    from src.dashboard.components import render_walking_count
+    assert callable(render_walking_count)
