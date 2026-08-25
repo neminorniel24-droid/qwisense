@@ -1058,3 +1058,19 @@ def render_dashboard_theme() -> None:
         """,
         unsafe_allow_html=True,
     )
+
+
+def render_panel(title: str, content: str) -> None:
+    """Render a reusable dashboard panel."""
+    if not title.strip():
+        raise ValueError("title must not be empty.")
+
+    st.markdown(
+        f"""
+        <div class="qwisense-panel">
+            <strong>{title}</strong>
+            <div class="qwisense-muted">{content}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )

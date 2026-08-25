@@ -525,3 +525,8 @@ def test_analytics_section_is_importable():
 def test_dashboard_theme_is_importable():
     from src.dashboard.components import render_dashboard_theme
     assert callable(render_dashboard_theme)
+
+
+def test_panel_component_is_importable():
+    from src.dashboard.components import render_panel
+    assert callable(render_panel)
