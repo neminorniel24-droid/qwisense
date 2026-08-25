@@ -648,3 +648,29 @@ def test_train_evaluate_preserves_test_sample_count():
 
     assert result["confusion_matrix"].sum() == len(y_test)
     assert len(result["y_pred"]) == len(y_test)
+
+
+def test_train_evaluate_handles_different_test_sizes():
+    from sklearn.dummy import DummyClassifier
+
+    X_train = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+        [0.1], [1.1], [2.1], [3.1],
+    ])
+    y_train = np.array([0, 1, 2, 3, 0, 1, 2, 3])
+
+    for size in (4, 6, 8):
+        X_test = np.arange(size, dtype=float).reshape(-1, 1)
+        y_test = np.array([i % 4 for i in range(size)])
+
+        result = train_evaluate(
+            DummyClassifier(strategy="prior"),
+            X_train,
+            X_test,
+            y_train,
+            y_test,
+            f"Size Test {size}",
+        )
+
+        assert len(result["y_pred"]) == size
+        assert result["confusion_matrix"].sum() == size
