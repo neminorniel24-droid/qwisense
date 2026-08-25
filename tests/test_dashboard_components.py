@@ -478,3 +478,9 @@ def test_amplitude_preview_is_importable():
     from src.dashboard.components import render_amplitude_preview
 
     assert callable(render_amplitude_preview)
+
+
+def test_phase_preview_is_importable():
+    from src.dashboard.components import render_phase_preview
+
+    assert callable(render_phase_preview)

@@ -945,3 +945,11 @@ def render_amplitude_preview(values) -> None:
         values,
         title="CSI Amplitude",
     )
+
+
+def render_phase_preview(values) -> None:
+    """Render CSI phase data."""
+    render_signal_preview(
+        values,
+        title="CSI Phase",
+    )
