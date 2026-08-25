@@ -301,3 +301,15 @@ def render_technical_details(details: dict[str, str]) -> None:
     with st.expander("🔬 Technical Details"):
         for key, value in details.items():
             st.write(f"**{key}:** {value}")
+
+
+def render_confidence_badge(confidence: float | None) -> None:
+    """Render a compact confidence badge."""
+    if confidence is None:
+        st.caption("Confidence: —")
+        return
+
+    if not 0.0 <= confidence <= 1.0:
+        raise ValueError("confidence must be between 0 and 1.")
+
+    st.caption(f"Confidence: **{confidence:.1%}**")
