@@ -180,3 +180,23 @@ def test_pipeline_marks_itself_fitted_after_fit_transform():
     pipeline.fit_transform(X)
 
     assert pipeline._fitted is True
+
+
+def test_pipeline_transform_matches_training_features():
+    rng = np.random.default_rng(42)
+    X = (
+        rng.normal(size=(4, 52, 200))
+        + 1j * rng.normal(size=(4, 52, 200))
+    )
+
+    pipeline = CSIPipeline(n_pca_components=4)
+
+    fitted_features = pipeline.fit_transform(X)
+    transformed_features = pipeline.transform(X)
+
+    np.testing.assert_allclose(
+        transformed_features,
+        fitted_features,
+        rtol=1e-6,
+        atol=1e-6,
+    )
