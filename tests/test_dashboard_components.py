@@ -234,3 +234,8 @@ def test_version_badge_is_importable():
 def test_signal_quality_component_is_importable():
     from src.dashboard.components import render_signal_quality
     assert callable(render_signal_quality)
+
+
+def test_sensor_status_component_is_importable():
+    from src.dashboard.components import render_sensor_status
+    assert callable(render_sensor_status)

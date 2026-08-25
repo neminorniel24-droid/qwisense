@@ -433,3 +433,8 @@ def render_signal_quality(score: float | None) -> None:
         raise ValueError("score must be between 0 and 1.")
 
     st.metric("Signal Quality", f"{score:.1%}")
+
+
+def render_sensor_status(status: str) -> None:
+    """Render the current sensor connection status."""
+    st.metric("Sensor", status)
