@@ -421,3 +421,15 @@ def activity_label(class_id: int) -> str:
 def render_version_badge(version: str) -> None:
     """Render the dashboard version."""
     st.caption(f"QwiSense Dashboard v{version}")
+
+
+def render_signal_quality(score: float | None) -> None:
+    """Render a CSI signal-quality indicator."""
+    if score is None:
+        st.metric("Signal Quality", "—")
+        return
+
+    if not 0.0 <= score <= 1.0:
+        raise ValueError("score must be between 0 and 1.")
+
+    st.metric("Signal Quality", f"{score:.1%}")

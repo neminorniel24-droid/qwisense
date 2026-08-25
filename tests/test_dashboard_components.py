@@ -229,3 +229,8 @@ def test_activity_label_rejects_unknown_class():
 def test_version_badge_is_importable():
     from src.dashboard.components import render_version_badge
     assert callable(render_version_badge)
+
+
+def test_signal_quality_component_is_importable():
+    from src.dashboard.components import render_signal_quality
+    assert callable(render_signal_quality)
