@@ -563,3 +563,13 @@ def dataframe_to_csv(dataframe) -> bytes:
         raise ValueError("dataframe must not be None.")
 
     return dataframe.to_csv(index=False).encode("utf-8")
+
+
+def result_to_json(result: dict) -> str:
+    """Serialize dashboard results to readable JSON."""
+    import json
+
+    if not isinstance(result, dict):
+        raise TypeError("result must be a dictionary.")
+
+    return json.dumps(result, indent=2, default=str)

@@ -304,3 +304,15 @@ def test_dataframe_to_csv():
     assert isinstance(result, bytes)
     assert b"activity" in result
     assert b"Walking" in result
+
+
+def test_result_to_json():
+    import json
+
+    from src.dashboard.components import result_to_json
+
+    encoded = result_to_json({"activity": "Walking", "confidence": 0.9})
+    decoded = json.loads(encoded)
+
+    assert decoded["activity"] == "Walking"
+    assert decoded["confidence"] == 0.9
