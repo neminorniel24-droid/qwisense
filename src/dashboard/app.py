@@ -17,6 +17,101 @@ from src.preprocessing.pipeline import extract_features
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(page_title="QwiSense", page_icon="📡", layout="wide")
 
+# ── QwiSense visual foundation ───────────────────────────────────────────────
+st.markdown(
+    """
+    <style>
+    .qwisense-hero {
+        padding: 1.5rem 1.75rem;
+        border-radius: 18px;
+        margin-bottom: 1.25rem;
+        border: 1px solid rgba(128, 128, 128, 0.25);
+    }
+
+    .qwisense-hero h1 {
+        margin: 0;
+        font-size: 2.4rem;
+        letter-spacing: -0.03em;
+    }
+
+    .qwisense-hero p {
+        margin: 0.45rem 0 0;
+        opacity: 0.75;
+        font-size: 1.05rem;
+    }
+
+    .qwisense-status {
+        padding: 0.8rem 1rem;
+        border-radius: 12px;
+        border: 1px solid rgba(128, 128, 128, 0.25);
+        text-align: center;
+    }
+
+    .qwisense-status-label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        opacity: 0.65;
+    }
+
+    .qwisense-status-value {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-top: 0.2rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+    <div class="qwisense-hero">
+        <h1>📡 QwiSense</h1>
+        <p>Quantum-enhanced WiFi human sensing and activity recognition</p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+status_cols = st.columns(3)
+
+with status_cols[0]:
+    st.markdown(
+        """
+        <div class="qwisense-status">
+            <div class="qwisense-status-label">System</div>
+            <div class="qwisense-status-value">● Ready</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with status_cols[1]:
+    st.markdown(
+        """
+        <div class="qwisense-status">
+            <div class="qwisense-status-label">Signal</div>
+            <div class="qwisense-status-value">CSI Pipeline</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with status_cols[2]:
+    st.markdown(
+        """
+        <div class="qwisense-status">
+            <div class="qwisense-status-label">Inference</div>
+            <div class="qwisense-status-value">AI Enabled</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+st.markdown("")
+
+
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
