@@ -416,3 +416,8 @@ def activity_label(class_id: int) -> str:
         raise ValueError(f"Unknown activity class: {class_id}")
 
     return labels[class_id]
+
+
+def render_version_badge(version: str) -> None:
+    """Render the dashboard version."""
+    st.caption(f"QwiSense Dashboard v{version}")

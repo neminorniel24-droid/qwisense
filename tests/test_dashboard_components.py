@@ -224,3 +224,8 @@ def test_activity_label_rejects_unknown_class():
 
     with pytest.raises(ValueError, match="Unknown activity class"):
         activity_label(99)
+
+
+def test_version_badge_is_importable():
+    from src.dashboard.components import render_version_badge
+    assert callable(render_version_badge)
