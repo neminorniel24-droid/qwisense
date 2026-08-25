@@ -101,3 +101,35 @@ def test_random_forest_classifier_can_fit_qwisense_features():
 
     assert predictions.shape == y.shape
     assert set(predictions).issubset({0, 1, 2, 3})
+
+
+def test_train_evaluate_confusion_matrix_counts_predictions():
+    from sklearn.dummy import DummyClassifier
+
+    X_train = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+        [0.1], [1.1], [2.1], [3.1],
+    ])
+    y_train = np.array([0, 1, 2, 3, 0, 1, 2, 3])
+
+    X_test = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+    ])
+    y_test = np.array([0, 1, 2, 3])
+
+    model = DummyClassifier(strategy="prior")
+
+    result = train_evaluate(
+        model,
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+        "Confusion Test",
+    )
+
+    cm = result["confusion_matrix"]
+
+    assert cm.shape == (4, 4)
+    assert cm.sum() == len(y_test)
+    assert result["y_pred"].shape == y_test.shape
