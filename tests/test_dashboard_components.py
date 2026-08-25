@@ -545,3 +545,8 @@ def test_prediction_status_is_importable():
 def test_activity_indicator_is_importable():
     from src.dashboard.components import render_activity_indicator
     assert callable(render_activity_indicator)
+
+
+def test_inference_controls_are_importable():
+    from src.dashboard.components import render_inference_controls
+    assert callable(render_inference_controls)

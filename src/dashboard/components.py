@@ -1122,3 +1122,11 @@ def render_activity_indicator(activity: str) -> None:
         raise ValueError("activity must not be empty.")
 
     st.markdown(f"**Current activity:** {activity}")
+
+
+def render_inference_controls() -> tuple[bool, bool]:
+    """Render inference configuration controls."""
+    live_mode = st.toggle("Live inference", value=False)
+    auto_refresh = st.toggle("Auto refresh", value=False)
+
+    return live_mode, auto_refresh
