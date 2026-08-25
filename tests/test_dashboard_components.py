@@ -346,3 +346,9 @@ def test_dataset_info_component_is_importable():
     from src.dashboard.components import render_dataset_info
 
     assert callable(render_dataset_info)
+
+
+def test_navigation_note_is_importable():
+    from src.dashboard.components import render_navigation_note
+
+    assert callable(render_navigation_note)

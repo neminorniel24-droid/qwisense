@@ -627,3 +627,11 @@ def render_dataset_info(info: dict[str, str]) -> None:
 
     for key, value in info.items():
         st.write(f"**{key}:** {value}")
+
+
+def render_navigation_note(current_section: str) -> None:
+    """Show the active dashboard section."""
+    if not current_section.strip():
+        raise ValueError("current_section must not be empty.")
+
+    st.caption(f"Current section: **{current_section}**")
