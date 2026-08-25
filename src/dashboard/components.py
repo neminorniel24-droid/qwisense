@@ -35,3 +35,23 @@ def render_kpi(label: str, value: str) -> None:
         """,
         unsafe_allow_html=True,
     )
+
+
+def render_activity_badge(activity: str, confidence: float | None = None) -> None:
+    """Render the current detected activity and optional confidence."""
+    confidence_text = (
+        f"{confidence:.1%} confidence"
+        if confidence is not None
+        else "Confidence unavailable"
+    )
+
+    st.markdown(
+        f"""
+        <div class="qwisense-kpi">
+            <div class="qwisense-kpi-label">Detected Activity</div>
+            <div class="qwisense-kpi-value">{activity}</div>
+            <div>{confidence_text}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
