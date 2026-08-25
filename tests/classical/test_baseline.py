@@ -530,3 +530,35 @@ def test_train_evaluate_with_real_svm():
     assert result["confusion_matrix"].shape == (4, 4)
     assert len(result["y_pred"]) == len(y_test)
     assert 0.0 <= result["accuracy"] <= 1.0
+
+
+def test_train_evaluate_with_real_random_forest():
+    from sklearn.ensemble import RandomForestClassifier
+
+    X_train = np.array([
+        [0.0, 0.0], [1.0, 1.0], [2.0, 2.0], [3.0, 3.0],
+        [0.1, 0.1], [1.1, 1.1], [2.1, 2.1], [3.1, 3.1],
+    ])
+    y_train = np.array([0, 1, 2, 3, 0, 1, 2, 3])
+
+    X_test = np.array([
+        [0.0, 0.0], [1.0, 1.0], [2.0, 2.0], [3.0, 3.0],
+    ])
+    y_test = np.array([0, 1, 2, 3])
+
+    result = train_evaluate(
+        RandomForestClassifier(
+            n_estimators=20,
+            random_state=42,
+        ),
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+        "Random Forest Test",
+    )
+
+    assert result["name"] == "Random Forest Test"
+    assert result["confusion_matrix"].shape == (4, 4)
+    assert len(result["y_pred"]) == len(y_test)
+    assert 0.0 <= result["accuracy"] <= 1.0
