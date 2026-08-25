@@ -505,3 +505,9 @@ def render_inference_mode_selector() -> str:
         ["Single sample", "Batch"],
         horizontal=True,
     )
+
+
+def render_model_comparison_header() -> None:
+    """Render the model-comparison section header."""
+    st.markdown("### ⚖️ Model Comparison")
+    st.caption("Compare classical and quantum model performance.")

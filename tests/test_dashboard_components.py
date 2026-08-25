@@ -269,3 +269,8 @@ def test_confidence_threshold_component_is_importable():
 def test_inference_mode_selector_is_importable():
     from src.dashboard.components import render_inference_mode_selector
     assert callable(render_inference_mode_selector)
+
+
+def test_model_comparison_header_is_importable():
+    from src.dashboard.components import render_model_comparison_header
+    assert callable(render_model_comparison_header)
