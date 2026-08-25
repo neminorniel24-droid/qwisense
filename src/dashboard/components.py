@@ -769,3 +769,18 @@ def render_error_state(message: str) -> None:
 def render_control_group(title: str) -> None:
     """Render a consistent controls section."""
     st.markdown(f"### ⚙️ {title}")
+
+
+def render_product_summary() -> None:
+    """Render the QwiSense product summary."""
+    st.markdown(
+        """
+        ### 📡 QwiSense
+
+        **Quantum-enhanced WiFi human sensing**
+
+        Monitor CSI signals, preprocess wireless measurements,
+        compare machine-learning models, and inspect activity
+        recognition results from a single dashboard.
+        """
+    )

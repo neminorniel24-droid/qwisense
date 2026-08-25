@@ -397,3 +397,8 @@ def test_error_state_is_importable():
 def test_control_group_is_importable():
     from src.dashboard.components import render_control_group
     assert callable(render_control_group)
+
+
+def test_product_summary_is_importable():
+    from src.dashboard.components import render_product_summary
+    assert callable(render_product_summary)
