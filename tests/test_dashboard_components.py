@@ -550,3 +550,10 @@ def test_activity_indicator_is_importable():
 def test_inference_controls_are_importable():
     from src.dashboard.components import render_inference_controls
     assert callable(render_inference_controls)
+
+
+def test_validate_kpi_value():
+    from src.dashboard.components import validate_kpi_value
+
+    assert validate_kpi_value(5) == 5.0
+    assert validate_kpi_value(2.5) == 2.5

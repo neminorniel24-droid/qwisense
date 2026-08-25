@@ -1130,3 +1130,11 @@ def render_inference_controls() -> tuple[bool, bool]:
     auto_refresh = st.toggle("Auto refresh", value=False)
 
     return live_mode, auto_refresh
+
+
+def validate_kpi_value(value: float | int) -> float:
+    """Normalize a numeric KPI value."""
+    if not isinstance(value, (int, float)):
+        raise TypeError("KPI value must be numeric.")
+
+    return float(value)
