@@ -112,3 +112,35 @@ def test_bandpass_filter_respects_custom_sampling_rate():
 
     assert filtered.shape == signal.shape
     assert np.all(np.isfinite(filtered))
+
+
+def test_extract_features_is_deterministic():
+    rng = np.random.default_rng(123)
+    window = (
+        rng.normal(size=(52, 200))
+        + 1j * rng.normal(size=(52, 200))
+    )
+
+    features_1 = extract_features(window)
+    features_2 = extract_features(window)
+
+    np.testing.assert_array_equal(features_1, features_2)
+
+
+def test_extract_features_changes_for_different_input():
+    rng = np.random.default_rng(123)
+
+    window_1 = (
+        rng.normal(size=(52, 200))
+        + 1j * rng.normal(size=(52, 200))
+    )
+
+    window_2 = (
+        rng.normal(size=(52, 200))
+        + 1j * rng.normal(size=(52, 200))
+    )
+
+    features_1 = extract_features(window_1)
+    features_2 = extract_features(window_2)
+
+    assert not np.array_equal(features_1, features_2)
