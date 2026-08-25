@@ -781,3 +781,8 @@ def test_dashboard_state_is_importable():
 def test_page_title_is_importable():
     from src.dashboard.components import render_page_title
     assert callable(render_page_title)
+
+
+def test_breadcrumb_is_importable():
+    from src.dashboard.components import render_breadcrumb
+    assert callable(render_breadcrumb)
