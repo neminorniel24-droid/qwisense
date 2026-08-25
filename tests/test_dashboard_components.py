@@ -357,3 +357,8 @@ def test_navigation_note_is_importable():
 def test_signal_overview_component_is_importable():
     from src.dashboard.components import render_signal_overview
     assert callable(render_signal_overview)
+
+
+def test_quantum_model_card_is_importable():
+    from src.dashboard.components import render_quantum_model_card
+    assert callable(render_quantum_model_card)

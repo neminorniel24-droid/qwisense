@@ -655,3 +655,18 @@ def render_signal_overview(
 
     with cols[2]:
         st.metric("Sampling Rate", f"{sampling_rate:g} Hz")
+
+
+def render_quantum_model_card(
+    model_name: str = "VQC",
+    qubits: int | None = None,
+) -> None:
+    """Render quantum-model information."""
+    st.markdown("### ⚛️ Quantum Model")
+
+    st.markdown(f"**Model:** {model_name}")
+
+    if qubits is not None:
+        st.caption(f"Qubits: {qubits}")
+    else:
+        st.caption("Quantum circuit configuration unavailable.")
