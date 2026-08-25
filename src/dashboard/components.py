@@ -1295,3 +1295,11 @@ def render_empty_count(count: int) -> None:
         raise ValueError("count must not be negative.")
 
     st.metric("Empty Samples", count)
+
+
+def render_dataset_size(size: int) -> None:
+    """Render dataset size."""
+    if size < 0:
+        raise ValueError("size must not be negative.")
+
+    st.metric("Dataset Size", f"{size:,}")

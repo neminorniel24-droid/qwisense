@@ -636,3 +636,8 @@ def test_presence_count_is_importable():
 def test_empty_count_is_importable():
     from src.dashboard.components import render_empty_count
     assert callable(render_empty_count)
+
+
+def test_dataset_size_is_importable():
+    from src.dashboard.components import render_dataset_size
+    assert callable(render_dataset_size)
