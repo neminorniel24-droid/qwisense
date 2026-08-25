@@ -1303,3 +1303,11 @@ def render_dataset_size(size: int) -> None:
         raise ValueError("size must not be negative.")
 
     st.metric("Dataset Size", f"{size:,}")
+
+
+def render_accuracy_card(accuracy: float | None) -> None:
+    """Render model accuracy."""
+    st.metric(
+        "Accuracy",
+        format_percentage(accuracy),
+    )

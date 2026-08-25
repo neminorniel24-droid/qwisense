@@ -641,3 +641,8 @@ def test_empty_count_is_importable():
 def test_dataset_size_is_importable():
     from src.dashboard.components import render_dataset_size
     assert callable(render_dataset_size)
+
+
+def test_accuracy_card_is_importable():
+    from src.dashboard.components import render_accuracy_card
+    assert callable(render_accuracy_card)
