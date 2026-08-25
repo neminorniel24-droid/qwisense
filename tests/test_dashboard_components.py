@@ -104,3 +104,9 @@ def test_model_selector_component_is_importable():
     from src.dashboard.components import render_model_selector
 
     assert callable(render_model_selector)
+
+
+def test_activity_selector_component_is_importable():
+    from src.dashboard.components import render_activity_selector
+
+    assert callable(render_activity_selector)

@@ -222,3 +222,14 @@ def render_model_selector(
         models,
         index=default,
     )
+
+
+def render_activity_selector(activities: list[str]) -> str:
+    """Render an activity filter."""
+    if not activities:
+        raise ValueError("activities must contain at least one activity.")
+
+    return st.selectbox(
+        "Activity",
+        activities,
+    )
