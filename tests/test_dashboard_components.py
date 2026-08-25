@@ -322,3 +322,9 @@ def test_accessible_note_component_is_importable():
     from src.dashboard.components import render_accessible_note
 
     assert callable(render_accessible_note)
+
+
+def test_prediction_history_component_is_importable():
+    from src.dashboard.components import render_prediction_history
+
+    assert callable(render_prediction_history)

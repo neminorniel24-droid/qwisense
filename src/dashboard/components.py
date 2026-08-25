@@ -581,3 +581,14 @@ def render_accessible_note(text: str) -> None:
         raise ValueError("text must not be empty.")
 
     st.caption(text)
+
+
+def render_prediction_history(history: list[dict]) -> None:
+    """Render recent prediction history."""
+    st.markdown("### 🕘 Recent Predictions")
+
+    if not history:
+        st.info("No predictions yet.")
+        return
+
+    st.dataframe(history, use_container_width=True)
