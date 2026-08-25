@@ -557,3 +557,10 @@ def test_validate_kpi_value():
 
     assert validate_kpi_value(5) == 5.0
     assert validate_kpi_value(2.5) == 2.5
+
+
+def test_format_percentage():
+    from src.dashboard.components import format_percentage
+
+    assert format_percentage(0.95) == "95.0%"
+    assert format_percentage(None) == "—"

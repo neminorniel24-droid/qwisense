@@ -1138,3 +1138,14 @@ def validate_kpi_value(value: float | int) -> float:
         raise TypeError("KPI value must be numeric.")
 
     return float(value)
+
+
+def format_percentage(value: float | None) -> str:
+    """Format a normalized value as a percentage."""
+    if value is None:
+        return "—"
+
+    if not 0 <= value <= 1:
+        raise ValueError("percentage value must be between 0 and 1.")
+
+    return f"{value:.1%}"
