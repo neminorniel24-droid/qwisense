@@ -343,3 +343,22 @@ def render_window_size_control(
         value=default,
         step=10,
     )
+
+
+def render_sampling_rate_control(
+    minimum: float = 1.0,
+    maximum: float = 1000.0,
+    default: float = 100.0,
+) -> float:
+    """Render a sampling-rate control."""
+    if minimum <= 0 or minimum > maximum:
+        raise ValueError("sampling-rate bounds are invalid.")
+    if not minimum <= default <= maximum:
+        raise ValueError("default must be within the allowed range.")
+
+    return st.number_input(
+        "Sampling rate (Hz)",
+        min_value=minimum,
+        max_value=maximum,
+        value=default,
+    )

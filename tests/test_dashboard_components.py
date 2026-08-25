@@ -173,3 +173,8 @@ def test_dataset_selector_component_is_importable():
 def test_window_size_control_is_importable():
     from src.dashboard.components import render_window_size_control
     assert callable(render_window_size_control)
+
+
+def test_sampling_rate_control_is_importable():
+    from src.dashboard.components import render_sampling_rate_control
+    assert callable(render_sampling_rate_control)
