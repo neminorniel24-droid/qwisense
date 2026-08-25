@@ -1204,3 +1204,13 @@ def render_section_navigation(sections: list[str]) -> str:
         sections,
         horizontal=True,
     )
+
+
+def render_date_range_filter():
+    """Render a dashboard date range filter."""
+    import datetime as dt
+
+    return st.date_input(
+        "Date range",
+        value=(dt.date.today(), dt.date.today()),
+    )
