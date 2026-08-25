@@ -791,3 +791,8 @@ def test_breadcrumb_is_importable():
 def test_sidebar_info_is_importable():
     from src.dashboard.components import render_sidebar_info
     assert callable(render_sidebar_info)
+
+
+def test_section_tabs_is_importable():
+    from src.dashboard.components import render_section_tabs
+    assert callable(render_section_tabs)

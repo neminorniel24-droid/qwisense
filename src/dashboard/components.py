@@ -1650,3 +1650,16 @@ def render_sidebar_info(version: str) -> None:
     with st.sidebar:
         st.caption(f"QwiSense Dashboard v{version}")
         st.caption("WiFi human sensing")
+
+
+def render_section_tabs(sections: list[str]) -> str:
+    """Render compact section tabs."""
+    if not sections:
+        raise ValueError("sections must not be empty.")
+
+    return st.radio(
+        "View",
+        sections,
+        horizontal=True,
+        label_visibility="collapsed",
+    )
