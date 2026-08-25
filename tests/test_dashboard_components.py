@@ -68,3 +68,9 @@ def test_model_badge_component_is_importable():
     from src.dashboard.components import render_model_badge
 
     assert callable(render_model_badge)
+
+
+def test_data_status_component_is_importable():
+    from src.dashboard.components import render_data_status
+
+    assert callable(render_data_status)

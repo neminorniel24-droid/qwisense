@@ -133,3 +133,15 @@ def render_prediction_card(
 def render_model_badge(model_name: str) -> None:
     """Render the active model name."""
     st.caption(f"Active model: **{model_name}**")
+
+
+def render_data_status(samples: int, source: str) -> None:
+    """Render dataset status information."""
+    st.markdown("### 📦 Dataset")
+    cols = st.columns(2)
+
+    with cols[0]:
+        st.metric("Samples", samples)
+
+    with cols[1]:
+        st.metric("Source", source)
