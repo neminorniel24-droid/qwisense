@@ -56,3 +56,16 @@ def test_activity_labels_are_complete():
 def test_window_configuration_is_consistent():
     assert N_SUBCARRIERS == 52
     assert WINDOW_SAMPLES == 200
+
+
+def test_load_dataset_falls_back_when_falldefi_is_missing(tmp_path):
+    X, y, meta = load_dataset(
+        data_dir=str(tmp_path / "missing_dataset"),
+        n_synthetic=8,
+        random_seed=7,
+    )
+
+    assert meta["source"] == "synthetic"
+    assert meta["n_samples"] == 8
+    assert len(X) == 8
+    assert len(y) == 8
