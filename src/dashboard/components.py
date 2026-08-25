@@ -1476,3 +1476,32 @@ def render_inference_indicator(running: bool) -> None:
         st.info("Running inference...")
     else:
         st.caption("Inference idle")
+
+
+def render_dashboard_state(
+    sensor_connected: bool,
+    processing: bool,
+    inference_running: bool,
+) -> None:
+    """Render the current dashboard operating state."""
+    st.markdown("### System State")
+
+    cols = st.columns(3)
+
+    with cols[0]:
+        st.metric(
+            "Sensor",
+            "Connected" if sensor_connected else "Offline",
+        )
+
+    with cols[1]:
+        st.metric(
+            "Processing",
+            "Active" if processing else "Idle",
+        )
+
+    with cols[2]:
+        st.metric(
+            "Inference",
+            "Running" if inference_running else "Idle",
+        )
