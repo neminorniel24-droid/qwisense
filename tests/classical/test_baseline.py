@@ -241,3 +241,30 @@ def test_plot_comparison_supports_multiple_models(tmp_path):
 
     import matplotlib.pyplot as plt
     plt.close(fig)
+
+
+def test_plot_comparison_supports_single_model(tmp_path):
+    import matplotlib
+    matplotlib.use("Agg")
+
+    from src.classical.baseline import plot_comparison
+
+    results = [
+        {
+            "name": "SVM",
+            "accuracy": 0.85,
+            "f1_fall": 0.80,
+        },
+    ]
+
+    output = tmp_path / "single_model_comparison.png"
+
+    fig = plot_comparison(results, save_path=str(output))
+
+    assert fig is not None
+    assert len(fig.axes) == 1
+    assert output.exists()
+    assert output.stat().st_size > 0
+
+    import matplotlib.pyplot as plt
+    plt.close(fig)
