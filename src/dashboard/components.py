@@ -1249,3 +1249,9 @@ def render_activity_chart(distribution: dict[str, int]) -> None:
         return
 
     st.bar_chart(distribution)
+
+
+def render_confidence_chart(values) -> None:
+    """Render prediction confidence values."""
+    validate_signal_data(values)
+    st.line_chart(list(values))
