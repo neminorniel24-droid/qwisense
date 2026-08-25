@@ -756,3 +756,11 @@ def render_no_data_state() -> None:
         "📡 No CSI data loaded yet. "
         "Choose a dataset or provide signal data to begin."
     )
+
+
+def render_error_state(message: str) -> None:
+    """Render a consistent dashboard error state."""
+    if not message.strip():
+        raise ValueError("message must not be empty.")
+
+    st.error(f"Something went wrong: {message}")

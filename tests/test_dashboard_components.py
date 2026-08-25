@@ -387,3 +387,8 @@ def test_inference_summary_is_importable():
 def test_no_data_state_is_importable():
     from src.dashboard.components import render_no_data_state
     assert callable(render_no_data_state)
+
+
+def test_error_state_is_importable():
+    from src.dashboard.components import render_error_state
+    assert callable(render_error_state)
