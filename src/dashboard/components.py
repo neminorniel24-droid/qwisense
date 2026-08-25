@@ -1287,3 +1287,11 @@ def render_presence_count(count: int) -> None:
         raise ValueError("count must not be negative.")
 
     st.metric("Presence Events", count)
+
+
+def render_empty_count(count: int) -> None:
+    """Render empty-scene count."""
+    if count < 0:
+        raise ValueError("count must not be negative.")
+
+    st.metric("Empty Samples", count)
