@@ -249,3 +249,8 @@ def test_feature_count_component_is_importable():
 def test_latency_component_is_importable():
     from src.dashboard.components import render_latency
     assert callable(render_latency)
+
+
+def test_fall_alert_component_is_importable():
+    from src.dashboard.components import render_fall_alert
+    assert callable(render_fall_alert)

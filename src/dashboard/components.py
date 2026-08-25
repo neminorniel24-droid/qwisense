@@ -458,3 +458,11 @@ def render_latency(latency_ms: float | None) -> None:
         raise ValueError("latency_ms must not be negative.")
 
     st.metric("Latency", f"{latency_ms:.1f} ms")
+
+
+def render_fall_alert(is_fall: bool) -> None:
+    """Render a fall-detection status indicator."""
+    if is_fall:
+        st.error("🚨 Fall activity detected")
+    else:
+        st.success("No fall detected")
