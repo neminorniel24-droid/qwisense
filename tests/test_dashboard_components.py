@@ -508,3 +508,9 @@ def test_model_comparison_table_is_importable():
     from src.dashboard.components import render_model_comparison_table
 
     assert callable(render_model_comparison_table)
+
+
+def test_confidence_distribution_is_importable():
+    from src.dashboard.components import render_confidence_distribution
+
+    assert callable(render_confidence_distribution)

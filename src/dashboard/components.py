@@ -1019,3 +1019,11 @@ def render_model_comparison_table(models: list[dict]) -> None:
         use_container_width=True,
         hide_index=True,
     )
+
+
+def render_confidence_distribution(values) -> None:
+    """Render prediction-confidence distribution."""
+    validate_signal_data(values)
+
+    st.markdown("### 📈 Confidence Distribution")
+    st.bar_chart(list(values), use_container_width=True)
