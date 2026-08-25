@@ -279,3 +279,9 @@ def test_model_comparison_header_is_importable():
 def test_dashboard_help_is_importable():
     from src.dashboard.components import render_dashboard_help
     assert callable(render_dashboard_help)
+
+
+def test_build_export_filename():
+    from src.dashboard.components import build_export_filename
+
+    assert build_export_filename("QwiSense Results", "csv") == "QwiSense_Results.csv"

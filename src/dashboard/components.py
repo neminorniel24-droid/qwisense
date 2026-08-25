@@ -525,3 +525,17 @@ def render_dashboard_help() -> None:
             5. Review activity and confidence.
             """
         )
+
+
+def build_export_filename(prefix: str, extension: str) -> str:
+    """Build a safe dashboard export filename."""
+    clean_prefix = prefix.strip().replace(" ", "_")
+    clean_extension = extension.strip().lstrip(".")
+
+    if not clean_prefix:
+        raise ValueError("prefix must not be empty.")
+
+    if not clean_extension:
+        raise ValueError("extension must not be empty.")
+
+    return f"{clean_prefix}.{clean_extension}"
