@@ -1544,3 +1544,11 @@ def render_section_tabs(sections: list[str]) -> str:
         horizontal=True,
         label_visibility="collapsed",
     )
+
+
+def render_info_callout(title: str, message: str) -> None:
+    """Render an informational callout."""
+    if not title.strip() or not message.strip():
+        raise ValueError("title and message must not be empty.")
+
+    st.info(f"**{title}** — {message}")
