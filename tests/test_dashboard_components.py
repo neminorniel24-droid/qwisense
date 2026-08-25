@@ -98,3 +98,9 @@ def test_dashboard_summary_component_is_importable():
     from src.dashboard.components import render_dashboard_summary
 
     assert callable(render_dashboard_summary)
+
+
+def test_model_selector_component_is_importable():
+    from src.dashboard.components import render_model_selector
+
+    assert callable(render_model_selector)

@@ -204,3 +204,21 @@ def render_dashboard_summary(
 
     with cols[3]:
         st.metric("Model", model)
+
+
+def render_model_selector(
+    models: list[str],
+    default: int = 0,
+) -> str:
+    """Render a model selector and return the selected model."""
+    if not models:
+        raise ValueError("models must contain at least one model.")
+
+    if not 0 <= default < len(models):
+        raise ValueError("default must reference a valid model.")
+
+    return st.selectbox(
+        "Model",
+        models,
+        index=default,
+    )
