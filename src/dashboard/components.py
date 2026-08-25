@@ -1255,3 +1255,11 @@ def render_confidence_chart(values) -> None:
     """Render prediction confidence values."""
     validate_signal_data(values)
     st.line_chart(list(values))
+
+
+def render_prediction_count(count: int) -> None:
+    """Render the number of predictions."""
+    if count < 0:
+        raise ValueError("count must not be negative.")
+
+    st.metric("Predictions", count)
