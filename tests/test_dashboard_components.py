@@ -417,3 +417,8 @@ def test_signal_statistics_is_importable():
 def test_feature_summary_is_importable():
     from src.dashboard.components import render_feature_summary
     assert callable(render_feature_summary)
+
+
+def test_preprocessing_config_is_importable():
+    from src.dashboard.components import render_preprocessing_config
+    assert callable(render_preprocessing_config)

@@ -826,3 +826,23 @@ def render_feature_summary(
 
     st.markdown("### 🧮 Feature Extraction")
     st.metric(feature_type, feature_count)
+
+
+def render_preprocessing_config(
+    normalize: bool = True,
+    detrend: bool = False,
+) -> tuple[bool, bool]:
+    """Render preprocessing configuration controls."""
+    st.markdown("### 🔧 Preprocessing")
+
+    normalize_value = st.checkbox(
+        "Normalize CSI",
+        value=normalize,
+    )
+
+    detrend_value = st.checkbox(
+        "Remove trend",
+        value=detrend,
+    )
+
+    return normalize_value, detrend_value
