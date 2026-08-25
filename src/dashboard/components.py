@@ -1386,3 +1386,14 @@ def render_overview_dashboard(
         model=model,
     )
     render_prediction_status(activity, confidence)
+
+
+def render_page_title(title: str, subtitle: str = "") -> None:
+    """Render a consistent page title."""
+    if not title.strip():
+        raise ValueError("title must not be empty.")
+
+    st.title(title)
+
+    if subtitle:
+        st.caption(subtitle)

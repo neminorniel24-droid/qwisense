@@ -676,3 +676,8 @@ def test_footer_metadata_is_importable():
 def test_overview_dashboard_is_importable():
     from src.dashboard.components import render_overview_dashboard
     assert callable(render_overview_dashboard)
+
+
+def test_page_title_is_importable():
+    from src.dashboard.components import render_page_title
+    assert callable(render_page_title)
