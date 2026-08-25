@@ -764,3 +764,8 @@ def render_error_state(message: str) -> None:
         raise ValueError("message must not be empty.")
 
     st.error(f"Something went wrong: {message}")
+
+
+def render_control_group(title: str) -> None:
+    """Render a consistent controls section."""
+    st.markdown(f"### ⚙️ {title}")
