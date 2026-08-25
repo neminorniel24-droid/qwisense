@@ -372,3 +372,21 @@ def render_preprocessing_status(status: str = "Ready") -> None:
 def render_model_status(model: str, status: str = "Ready") -> None:
     """Render active model status."""
     st.metric(f"{model} Status", status)
+
+
+def render_sample_info(
+    samples: int,
+    subcarriers: int = 52,
+    window_samples: int = 200,
+) -> None:
+    """Render CSI sample information."""
+    cols = st.columns(3)
+
+    with cols[0]:
+        st.metric("Samples", samples)
+
+    with cols[1]:
+        st.metric("Subcarriers", subcarriers)
+
+    with cols[2]:
+        st.metric("Window", window_samples)

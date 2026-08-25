@@ -188,3 +188,8 @@ def test_preprocessing_status_is_importable():
 def test_model_status_is_importable():
     from src.dashboard.components import render_model_status
     assert callable(render_model_status)
+
+
+def test_sample_info_component_is_importable():
+    from src.dashboard.components import render_sample_info
+    assert callable(render_sample_info)
