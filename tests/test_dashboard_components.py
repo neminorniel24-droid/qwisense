@@ -766,3 +766,8 @@ def test_connection_indicator_is_importable():
 def test_processing_indicator_is_importable():
     from src.dashboard.components import render_processing_indicator
     assert callable(render_processing_indicator)
+
+
+def test_inference_indicator_is_importable():
+    from src.dashboard.components import render_inference_indicator
+    assert callable(render_inference_indicator)

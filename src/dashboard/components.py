@@ -1587,3 +1587,11 @@ def render_processing_indicator(processing: bool) -> None:
         st.info("Processing CSI data...")
     else:
         st.caption("Processing idle")
+
+
+def render_inference_indicator(running: bool) -> None:
+    """Render model inference state."""
+    if running:
+        st.info("Running inference...")
+    else:
+        st.caption("Inference idle")
