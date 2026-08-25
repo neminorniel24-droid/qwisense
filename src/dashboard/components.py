@@ -438,3 +438,11 @@ def render_signal_quality(score: float | None) -> None:
 def render_sensor_status(status: str) -> None:
     """Render the current sensor connection status."""
     st.metric("Sensor", status)
+
+
+def render_feature_count(count: int) -> None:
+    """Render the number of extracted features."""
+    if count < 0:
+        raise ValueError("count must not be negative.")
+
+    st.metric("Features", count)
