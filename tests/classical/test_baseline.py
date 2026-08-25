@@ -439,3 +439,39 @@ def test_svm_uses_expected_configuration():
     assert model.gamma == "scale"
     assert model.probability is True
     assert model.random_state == 42
+
+
+def test_train_evaluate_result_contains_all_expected_fields():
+    from sklearn.dummy import DummyClassifier
+
+    X_train = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+        [0.1], [1.1], [2.1], [3.1],
+    ])
+    y_train = np.array([0, 1, 2, 3, 0, 1, 2, 3])
+
+    X_test = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+    ])
+    y_test = np.array([0, 1, 2, 3])
+
+    result = train_evaluate(
+        DummyClassifier(strategy="prior"),
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+        "Structure Test",
+    )
+
+    expected_keys = {
+        "name",
+        "model",
+        "accuracy",
+        "f1_weighted",
+        "f1_fall",
+        "confusion_matrix",
+        "y_pred",
+    }
+
+    assert set(result.keys()) == expected_keys
