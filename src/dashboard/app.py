@@ -92,6 +92,15 @@ st.markdown(
         <p>Quantum-enhanced WiFi human sensing and activity recognition</p>
     </div>
 
+with st.sidebar:
+    st.markdown("## 📡 QwiSense Navigation")
+    dashboard_section = st.radio(
+        "Section",
+        ["Overview", "Signal Analysis", "Model Results", "About"],
+    )
+    st.divider()
+    st.caption("Quantum-enhanced WiFi sensing")
+
 st.markdown("### 📊 Sensing Overview")
 
 kpi_cols = st.columns(4)
