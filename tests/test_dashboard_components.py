@@ -44,3 +44,9 @@ def test_section_component_is_importable():
     from src.dashboard.components import render_section
 
     assert callable(render_section)
+
+
+def test_empty_state_component_is_importable():
+    from src.dashboard.components import render_empty_state
+
+    assert callable(render_empty_state)

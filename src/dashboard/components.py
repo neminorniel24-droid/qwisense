@@ -101,3 +101,9 @@ def render_section(title: str, subtitle: str = "") -> None:
 
     if subtitle:
         st.caption(subtitle)
+
+
+def render_empty_state(title: str, message: str) -> None:
+    """Render an empty-state message."""
+    st.markdown(f"### {title}")
+    st.info(message)
