@@ -296,3 +296,31 @@ def test_train_evaluate_metrics_are_bounded():
     assert 0.0 <= result["accuracy"] <= 1.0
     assert 0.0 <= result["f1_weighted"] <= 1.0
     assert 0.0 <= result["f1_fall"] <= 1.0
+
+
+def test_train_evaluate_predictions_match_test_size():
+    from sklearn.dummy import DummyClassifier
+
+    X_train = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+        [0.1], [1.1], [2.1], [3.1],
+    ])
+    y_train = np.array([0, 1, 2, 3, 0, 1, 2, 3])
+
+    X_test = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+        [0.5], [1.5],
+    ])
+    y_test = np.array([0, 1, 2, 3, 0, 1])
+
+    result = train_evaluate(
+        DummyClassifier(strategy="prior"),
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+        "Prediction Size",
+    )
+
+    assert len(result["y_pred"]) == len(y_test)
+    assert result["y_pred"].ndim == 1
