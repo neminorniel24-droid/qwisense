@@ -1341,3 +1341,23 @@ def render_model_performance_summary(
 
     with cols[1]:
         render_f1_card(f1)
+
+
+def render_system_health(
+    sensor: str,
+    preprocessing: str,
+    model: str,
+) -> None:
+    """Render system health summary."""
+    st.markdown("### 💚 System Health")
+
+    cols = st.columns(3)
+
+    with cols[0]:
+        st.metric("Sensor", sensor)
+
+    with cols[1]:
+        st.metric("Preprocessing", preprocessing)
+
+    with cols[2]:
+        st.metric("Model", model)

@@ -661,3 +661,8 @@ def test_fall_f1_card_is_importable():
 def test_model_performance_summary_is_importable():
     from src.dashboard.components import render_model_performance_summary
     assert callable(render_model_performance_summary)
+
+
+def test_system_health_is_importable():
+    from src.dashboard.components import render_system_health
+    assert callable(render_system_health)
