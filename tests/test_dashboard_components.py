@@ -706,3 +706,8 @@ def test_info_callout_is_importable():
 def test_quick_actions_is_importable():
     from src.dashboard.components import render_quick_actions
     assert callable(render_quick_actions)
+
+
+def test_connection_indicator_is_importable():
+    from src.dashboard.components import render_connection_indicator
+    assert callable(render_connection_indicator)

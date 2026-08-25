@@ -1452,3 +1452,11 @@ def render_quick_actions() -> tuple[bool, bool]:
         )
 
     return run, refresh
+
+
+def render_connection_indicator(connected: bool) -> None:
+    """Render sensor connection state."""
+    if connected:
+        st.success("Sensor connected")
+    else:
+        st.warning("Sensor disconnected")
