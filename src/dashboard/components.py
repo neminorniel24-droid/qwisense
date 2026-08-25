@@ -814,3 +814,15 @@ def render_signal_statistics(
                 label,
                 "—" if value is None else f"{value:.3f}",
             )
+
+
+def render_feature_summary(
+    feature_count: int,
+    feature_type: str = "Extracted features",
+) -> None:
+    """Render feature extraction summary."""
+    if feature_count < 0:
+        raise ValueError("feature_count must not be negative.")
+
+    st.markdown("### 🧮 Feature Extraction")
+    st.metric(feature_type, feature_count)

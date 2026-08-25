@@ -412,3 +412,8 @@ def test_signal_chart_header_is_importable():
 def test_signal_statistics_is_importable():
     from src.dashboard.components import render_signal_statistics
     assert callable(render_signal_statistics)
+
+
+def test_feature_summary_is_importable():
+    from src.dashboard.components import render_feature_summary
+    assert callable(render_feature_summary)
