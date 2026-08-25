@@ -651,3 +651,8 @@ def test_accuracy_card_is_importable():
 def test_f1_card_is_importable():
     from src.dashboard.components import render_f1_card
     assert callable(render_f1_card)
+
+
+def test_fall_f1_card_is_importable():
+    from src.dashboard.components import render_fall_f1_card
+    assert callable(render_fall_f1_card)

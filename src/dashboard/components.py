@@ -1319,3 +1319,11 @@ def render_f1_card(f1: float | None) -> None:
         "Weighted F1",
         format_percentage(f1),
     )
+
+
+def render_fall_f1_card(f1: float | None) -> None:
+    """Render fall-class F1 score."""
+    st.metric(
+        "Fall F1",
+        format_percentage(f1),
+    )
