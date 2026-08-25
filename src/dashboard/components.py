@@ -604,3 +604,14 @@ def render_recent_events(events: list[str]) -> None:
 
     for event in events:
         st.write(f"• {event}")
+
+
+def render_model_metrics(metrics: dict[str, dict[str, float]]) -> None:
+    """Render model evaluation metrics."""
+    st.markdown("### 📋 Model Metrics")
+
+    if not metrics:
+        st.info("No model metrics available.")
+        return
+
+    st.dataframe(metrics, use_container_width=True)

@@ -334,3 +334,9 @@ def test_recent_events_component_is_importable():
     from src.dashboard.components import render_recent_events
 
     assert callable(render_recent_events)
+
+
+def test_model_metrics_component_is_importable():
+    from src.dashboard.components import render_model_metrics
+
+    assert callable(render_model_metrics)
