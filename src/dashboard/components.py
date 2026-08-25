@@ -1263,3 +1263,11 @@ def render_prediction_count(count: int) -> None:
         raise ValueError("count must not be negative.")
 
     st.metric("Predictions", count)
+
+
+def render_fall_count(count: int) -> None:
+    """Render detected fall count."""
+    if count < 0:
+        raise ValueError("count must not be negative.")
+
+    st.metric("Falls Detected", count)

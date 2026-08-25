@@ -616,3 +616,8 @@ def test_confidence_chart_is_importable():
 def test_prediction_count_is_importable():
     from src.dashboard.components import render_prediction_count
     assert callable(render_prediction_count)
+
+
+def test_fall_count_is_importable():
+    from src.dashboard.components import render_fall_count
+    assert callable(render_fall_count)
