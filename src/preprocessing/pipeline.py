@@ -47,14 +47,30 @@ def extract_features(window: np.ndarray) -> np.ndarray:
 
     Parameters
     ----------
-    window : np.ndarray, shape (n_subcarriers, window_size)
-        Complex CSI window
+    window : np.ndarray
+        Complex CSI window with shape (n_subcarriers, window_size).
 
     Returns
     -------
-    features : np.ndarray, shape (n_features,)
-        32-dim feature vector
+    np.ndarray
+        A 32-dimensional feature vector.
+
+    Raises
+    ------
+    ValueError
+        If the CSI window is not a non-empty 2D array.
     """
+    window = np.asarray(window)
+
+    if window.ndim != 2:
+        raise ValueError(
+            "CSI window must be a 2D array with shape "
+            "(n_subcarriers, window_size)."
+        )
+
+    if window.size == 0:
+        raise ValueError("CSI window must not be empty.")
+
     amp   = np.abs(window)      # (n_subcarriers, window_size)
     phase = np.angle(window)
 

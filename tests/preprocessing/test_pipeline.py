@@ -144,3 +144,13 @@ def test_extract_features_changes_for_different_input():
     features_2 = extract_features(window_2)
 
     assert not np.array_equal(features_1, features_2)
+
+
+def test_extract_features_rejects_one_dimensional_input():
+    with pytest.raises(ValueError, match="2D array"):
+        extract_features(np.zeros(200))
+
+
+def test_extract_features_rejects_empty_input():
+    with pytest.raises(ValueError, match="must not be empty"):
+        extract_features(np.empty((52, 0)))
