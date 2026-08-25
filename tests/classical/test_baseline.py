@@ -268,3 +268,31 @@ def test_plot_comparison_supports_single_model(tmp_path):
 
     import matplotlib.pyplot as plt
     plt.close(fig)
+
+
+def test_train_evaluate_metrics_are_bounded():
+    from sklearn.dummy import DummyClassifier
+
+    X_train = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+        [0.1], [1.1], [2.1], [3.1],
+    ])
+    y_train = np.array([0, 1, 2, 3, 0, 1, 2, 3])
+
+    X_test = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+    ])
+    y_test = np.array([0, 1, 2, 3])
+
+    result = train_evaluate(
+        DummyClassifier(strategy="prior"),
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+        "Metric Bounds",
+    )
+
+    assert 0.0 <= result["accuracy"] <= 1.0
+    assert 0.0 <= result["f1_weighted"] <= 1.0
+    assert 0.0 <= result["f1_fall"] <= 1.0
