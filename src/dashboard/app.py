@@ -126,8 +126,6 @@ for column, (label, value) in zip(kpi_cols, kpi_data):
 
 st.markdown("")
 
-    """,
-    unsafe_allow_html=True,
 )
 
 status_cols = st.columns(3)
