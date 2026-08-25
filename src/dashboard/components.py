@@ -873,3 +873,19 @@ def render_channel_selector(
         channels,
         index=default,
     )
+
+
+def render_subcarrier_selector(
+    minimum: int = 1,
+    maximum: int = 52,
+) -> int:
+    """Select a CSI subcarrier."""
+    if minimum > maximum:
+        raise ValueError("minimum must not exceed maximum.")
+
+    return st.slider(
+        "Subcarrier",
+        min_value=minimum,
+        max_value=maximum,
+        value=minimum,
+    )

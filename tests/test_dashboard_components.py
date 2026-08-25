@@ -432,3 +432,8 @@ def test_signal_mode_selector_is_importable():
 def test_channel_selector_is_importable():
     from src.dashboard.components import render_channel_selector
     assert callable(render_channel_selector)
+
+
+def test_subcarrier_selector_is_importable():
+    from src.dashboard.components import render_subcarrier_selector
+    assert callable(render_subcarrier_selector)
