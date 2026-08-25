@@ -86,3 +86,9 @@ def test_activity_classes_component_is_importable():
     from src.dashboard.components import render_activity_classes
 
     assert callable(render_activity_classes)
+
+
+def test_confidence_metric_component_is_importable():
+    from src.dashboard.components import render_confidence_metric
+
+    assert callable(render_confidence_metric)

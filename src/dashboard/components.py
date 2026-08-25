@@ -169,3 +169,13 @@ def render_activity_classes(classes: dict[int, str]) -> None:
 
     for class_id, name in classes.items():
         st.write(f"**{class_id}** — {name}")
+
+
+def render_confidence_metric(confidence: float | None) -> None:
+    """Render confidence as a percentage metric."""
+    if confidence is None:
+        st.metric("Confidence", "—")
+        return
+
+    bounded = max(0.0, min(1.0, confidence))
+    st.metric("Confidence", f"{bounded:.1%}")
