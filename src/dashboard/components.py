@@ -748,3 +748,11 @@ def render_inference_summary(
             "Latency",
             "—" if latency_ms is None else f"{latency_ms:.1f} ms",
         )
+
+
+def render_no_data_state() -> None:
+    """Render the initial dashboard state when no CSI is loaded."""
+    st.info(
+        "📡 No CSI data loaded yet. "
+        "Choose a dataset or provide signal data to begin."
+    )

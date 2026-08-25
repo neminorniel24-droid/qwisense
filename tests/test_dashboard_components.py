@@ -382,3 +382,8 @@ def test_signal_health_is_importable():
 def test_inference_summary_is_importable():
     from src.dashboard.components import render_inference_summary
     assert callable(render_inference_summary)
+
+
+def test_no_data_state_is_importable():
+    from src.dashboard.components import render_no_data_state
+    assert callable(render_no_data_state)
