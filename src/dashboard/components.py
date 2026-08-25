@@ -113,3 +113,18 @@ def render_loading_state(message: str = "Loading QwiSense data...") -> None:
     """Render a dashboard loading indicator."""
     with st.spinner(message):
         st.empty()
+
+
+def render_prediction_card(
+    activity: str,
+    confidence: float | None = None,
+) -> None:
+    """Render a prediction-focused dashboard card."""
+    st.markdown("### 🎯 Prediction")
+    st.metric("Activity", activity)
+
+    if confidence is not None:
+        st.progress(max(0.0, min(1.0, confidence)))
+        st.caption(f"Confidence: {confidence:.1%}")
+    else:
+        st.caption("Confidence unavailable")

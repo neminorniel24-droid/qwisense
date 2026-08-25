@@ -56,3 +56,9 @@ def test_loading_state_component_is_importable():
     from src.dashboard.components import render_loading_state
 
     assert callable(render_loading_state)
+
+
+def test_prediction_card_component_is_importable():
+    from src.dashboard.components import render_prediction_card
+
+    assert callable(render_prediction_card)
