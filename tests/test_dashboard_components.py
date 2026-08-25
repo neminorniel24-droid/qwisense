@@ -596,3 +596,8 @@ def test_date_range_filter_is_importable():
 def test_activity_filter_is_importable():
     from src.dashboard.components import render_activity_filter
     assert callable(render_activity_filter)
+
+
+def test_model_filter_is_importable():
+    from src.dashboard.components import render_model_filter
+    assert callable(render_model_filter)

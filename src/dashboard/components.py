@@ -1228,3 +1228,15 @@ def render_activity_filter(
         activities,
         default=activities,
     )
+
+
+def render_model_filter(models: list[str]) -> list[str]:
+    """Render a model multi-select filter."""
+    if not models:
+        raise ValueError("models must not be empty.")
+
+    return st.multiselect(
+        "Models",
+        models,
+        default=models,
+    )
