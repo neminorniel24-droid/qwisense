@@ -796,3 +796,8 @@ def test_sidebar_info_is_importable():
 def test_section_tabs_is_importable():
     from src.dashboard.components import render_section_tabs
     assert callable(render_section_tabs)
+
+
+def test_info_callout_is_importable():
+    from src.dashboard.components import render_info_callout
+    assert callable(render_info_callout)
