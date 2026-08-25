@@ -1074,3 +1074,25 @@ def render_panel(title: str, content: str) -> None:
         """,
         unsafe_allow_html=True,
     )
+
+
+def render_model_confidence(
+    classical: float | None,
+    quantum: float | None,
+) -> None:
+    """Compare model confidence values."""
+    st.markdown("### Confidence Comparison")
+
+    cols = st.columns(2)
+
+    with cols[0]:
+        st.metric(
+            "Classical",
+            "—" if classical is None else f"{classical:.1%}",
+        )
+
+    with cols[1]:
+        st.metric(
+            "Quantum",
+            "—" if quantum is None else f"{quantum:.1%}",
+        )

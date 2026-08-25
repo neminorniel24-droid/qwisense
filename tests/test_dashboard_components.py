@@ -530,3 +530,8 @@ def test_dashboard_theme_is_importable():
 def test_panel_component_is_importable():
     from src.dashboard.components import render_panel
     assert callable(render_panel)
+
+
+def test_model_confidence_is_importable():
+    from src.dashboard.components import render_model_confidence
+    assert callable(render_model_confidence)
