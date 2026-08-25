@@ -496,3 +496,12 @@ def render_confidence_threshold(
         value=default,
         step=0.01,
     )
+
+
+def render_inference_mode_selector() -> str:
+    """Select between single-sample and batch inference."""
+    return st.radio(
+        "Inference mode",
+        ["Single sample", "Batch"],
+        horizontal=True,
+    )

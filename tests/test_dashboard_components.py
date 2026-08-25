@@ -264,3 +264,8 @@ def test_activity_distribution_component_is_importable():
 def test_confidence_threshold_component_is_importable():
     from src.dashboard.components import render_confidence_threshold
     assert callable(render_confidence_threshold)
+
+
+def test_inference_mode_selector_is_importable():
+    from src.dashboard.components import render_inference_mode_selector
+    assert callable(render_inference_mode_selector)
