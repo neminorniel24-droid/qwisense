@@ -164,3 +164,19 @@ def test_pipeline_rejects_invalid_pca_components():
 def test_pipeline_rejects_non_positive_sampling_rate():
     with pytest.raises(ValueError, match="greater than zero"):
         CSIPipeline(fs=0)
+
+
+def test_pipeline_marks_itself_fitted_after_fit_transform():
+    rng = np.random.default_rng(42)
+    X = (
+        rng.normal(size=(4, 52, 200))
+        + 1j * rng.normal(size=(4, 52, 200))
+    )
+
+    pipeline = CSIPipeline(n_pca_components=4)
+
+    assert pipeline._fitted is False
+
+    pipeline.fit_transform(X)
+
+    assert pipeline._fitted is True
