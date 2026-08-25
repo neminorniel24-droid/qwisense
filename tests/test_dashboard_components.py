@@ -520,3 +520,8 @@ def test_analytics_section_is_importable():
     from src.dashboard.components import render_analytics_section
 
     assert callable(render_analytics_section)
+
+
+def test_dashboard_theme_is_importable():
+    from src.dashboard.components import render_dashboard_theme
+    assert callable(render_dashboard_theme)

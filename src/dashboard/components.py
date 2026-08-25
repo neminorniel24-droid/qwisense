@@ -1036,3 +1036,25 @@ def render_analytics_section() -> None:
         "Inspect CSI signals, predictions, confidence, "
         "and model performance."
     )
+
+
+def render_dashboard_theme() -> None:
+    """Apply the QwiSense dashboard visual theme."""
+    st.markdown(
+        """
+        <style>
+        .qwisense-panel {
+            padding: 1rem;
+            border-radius: 14px;
+            border: 1px solid rgba(128,128,128,.22);
+            margin-bottom: 1rem;
+        }
+
+        .qwisense-muted {
+            opacity: .7;
+            font-size: .9rem;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
