@@ -152,6 +152,12 @@ class CSIPipeline:
     """End-to-end preprocessing: raw CSI → feature vectors."""
 
     def __init__(self, n_pca_components: int = 8, fs: float = 100.0):
+        if not isinstance(n_pca_components, int) or n_pca_components < 1:
+            raise ValueError("n_pca_components must be a positive integer.")
+
+        if fs <= 0:
+            raise ValueError("fs must be greater than zero.")
+
         self.n_pca = n_pca_components
         self.fs    = fs
         self.scaler = StandardScaler()

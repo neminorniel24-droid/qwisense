@@ -154,3 +154,13 @@ def test_extract_features_rejects_one_dimensional_input():
 def test_extract_features_rejects_empty_input():
     with pytest.raises(ValueError, match="must not be empty"):
         extract_features(np.empty((52, 0)))
+
+
+def test_pipeline_rejects_invalid_pca_components():
+    with pytest.raises(ValueError, match="positive integer"):
+        CSIPipeline(n_pca_components=0)
+
+
+def test_pipeline_rejects_non_positive_sampling_rate():
+    with pytest.raises(ValueError, match="greater than zero"):
+        CSIPipeline(fs=0)
