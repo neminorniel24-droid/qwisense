@@ -262,3 +262,11 @@ def render_inference_button(label: str = "Run inference") -> bool:
         type="primary",
         use_container_width=True,
     )
+
+
+def render_refresh_button(label: str = "Refresh data") -> bool:
+    """Render a dashboard refresh action."""
+    return st.button(
+        f"↻ {label}",
+        use_container_width=True,
+    )

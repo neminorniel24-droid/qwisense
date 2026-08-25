@@ -122,3 +122,9 @@ def test_inference_button_component_is_importable():
     from src.dashboard.components import render_inference_button
 
     assert callable(render_inference_button)
+
+
+def test_refresh_button_component_is_importable():
+    from src.dashboard.components import render_refresh_button
+
+    assert callable(render_refresh_button)
