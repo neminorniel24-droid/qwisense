@@ -92,3 +92,12 @@ def render_section(title: str, subtitle: str = "") -> None:
 
     if subtitle:
         st.caption(subtitle)
+
+
+def render_section(title: str, subtitle: str = "") -> None:
+    """Render a consistent dashboard section."""
+    st.divider()
+    st.markdown(f"### {title}")
+
+    if subtitle:
+        st.caption(subtitle)

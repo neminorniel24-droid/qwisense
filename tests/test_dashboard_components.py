@@ -38,3 +38,9 @@ def test_section_component_is_importable():
     from src.dashboard.components import render_section
 
     assert callable(render_section)
+
+
+def test_section_component_is_importable():
+    from src.dashboard.components import render_section
+
+    assert callable(render_section)
