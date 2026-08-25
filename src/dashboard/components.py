@@ -679,3 +679,29 @@ def render_classical_model_card(
     st.markdown("### 🤖 Classical Model")
     st.markdown(f"**Model:** {model_name}")
     st.caption("Classical baseline for activity recognition.")
+
+
+def render_comparison_metrics(
+    classical_accuracy: float | None,
+    quantum_accuracy: float | None,
+) -> None:
+    """Render classical versus quantum accuracy."""
+    st.markdown("### ⚖️ Model Comparison")
+
+    cols = st.columns(2)
+
+    with cols[0]:
+        value = (
+            "—"
+            if classical_accuracy is None
+            else f"{classical_accuracy:.1%}"
+        )
+        st.metric("Classical Accuracy", value)
+
+    with cols[1]:
+        value = (
+            "—"
+            if quantum_accuracy is None
+            else f"{quantum_accuracy:.1%}"
+        )
+        st.metric("Quantum Accuracy", value)

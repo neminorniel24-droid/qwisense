@@ -367,3 +367,8 @@ def test_quantum_model_card_is_importable():
 def test_classical_model_card_is_importable():
     from src.dashboard.components import render_classical_model_card
     assert callable(render_classical_model_card)
+
+
+def test_comparison_metrics_is_importable():
+    from src.dashboard.components import render_comparison_metrics
+    assert callable(render_comparison_metrics)
