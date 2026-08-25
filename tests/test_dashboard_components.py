@@ -291,3 +291,16 @@ def test_download_button_component_is_importable():
     from src.dashboard.components import render_download_button
 
     assert callable(render_download_button)
+
+
+def test_dataframe_to_csv():
+    import pandas as pd
+
+    from src.dashboard.components import dataframe_to_csv
+
+    frame = pd.DataFrame({"activity": ["Walking"], "confidence": [0.9]})
+    result = dataframe_to_csv(frame)
+
+    assert isinstance(result, bytes)
+    assert b"activity" in result
+    assert b"Walking" in result

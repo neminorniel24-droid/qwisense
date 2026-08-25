@@ -555,3 +555,11 @@ def render_download_button(
         mime=mime,
         use_container_width=True,
     )
+
+
+def dataframe_to_csv(dataframe) -> bytes:
+    """Convert a dataframe to UTF-8 CSV bytes."""
+    if dataframe is None:
+        raise ValueError("dataframe must not be None.")
+
+    return dataframe.to_csv(index=False).encode("utf-8")
