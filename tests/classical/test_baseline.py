@@ -562,3 +562,32 @@ def test_train_evaluate_with_real_random_forest():
     assert result["confusion_matrix"].shape == (4, 4)
     assert len(result["y_pred"]) == len(y_test)
     assert 0.0 <= result["accuracy"] <= 1.0
+
+
+def test_train_evaluate_preserves_model_identity():
+    from sklearn.dummy import DummyClassifier
+
+    X_train = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+        [0.1], [1.1], [2.1], [3.1],
+    ])
+    y_train = np.array([0, 1, 2, 3, 0, 1, 2, 3])
+
+    X_test = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+    ])
+    y_test = np.array([0, 1, 2, 3])
+
+    model = DummyClassifier(strategy="prior")
+
+    result = train_evaluate(
+        model,
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+        "Identity Test",
+    )
+
+    assert result["model"] is model
+    assert hasattr(result["model"], "classes_")
