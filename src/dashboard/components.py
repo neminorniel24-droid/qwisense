@@ -905,3 +905,11 @@ def render_chart_empty_state(chart_name: str = "Signal") -> None:
         raise ValueError("chart_name must not be empty.")
 
     st.info(f"No {chart_name.lower()} data available yet.")
+
+
+def render_signal_controls() -> tuple[str, int]:
+    """Render the primary signal-analysis controls."""
+    mode = render_signal_mode_selector()
+    subcarrier = render_subcarrier_selector()
+
+    return mode, subcarrier

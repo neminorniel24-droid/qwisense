@@ -447,3 +447,8 @@ def test_visualization_toggle_is_importable():
 def test_chart_empty_state_is_importable():
     from src.dashboard.components import render_chart_empty_state
     assert callable(render_chart_empty_state)
+
+
+def test_signal_controls_are_importable():
+    from src.dashboard.components import render_signal_controls
+    assert callable(render_signal_controls)
