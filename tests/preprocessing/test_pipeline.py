@@ -200,3 +200,18 @@ def test_pipeline_transform_matches_training_features():
         rtol=1e-6,
         atol=1e-6,
     )
+
+
+def test_pipeline_feature_count_is_stable():
+    rng = np.random.default_rng(42)
+    X = (
+        rng.normal(size=(3, 52, 200))
+        + 1j * rng.normal(size=(3, 52, 200))
+    )
+
+    pipeline = CSIPipeline(n_pca_components=4)
+    features = pipeline.fit_transform(X)
+
+    assert features.ndim == 2
+    assert features.shape[0] == 3
+    assert features.shape[1] == 32
