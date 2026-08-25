@@ -289,3 +289,8 @@ def render_progress(label: str, value: float) -> None:
 def render_warning_banner(message: str) -> None:
     """Render a prominent dashboard warning."""
     st.warning(f"⚠️ {message}")
+
+
+def render_success_banner(message: str) -> None:
+    """Render a prominent dashboard success message."""
+    st.success(f"✓ {message}")

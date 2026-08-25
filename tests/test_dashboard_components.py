@@ -146,3 +146,9 @@ def test_warning_banner_component_is_importable():
     from src.dashboard.components import render_warning_banner
 
     assert callable(render_warning_banner)
+
+
+def test_success_banner_component_is_importable():
+    from src.dashboard.components import render_success_banner
+
+    assert callable(render_success_banner)
