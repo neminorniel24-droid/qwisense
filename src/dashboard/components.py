@@ -1311,3 +1311,11 @@ def render_accuracy_card(accuracy: float | None) -> None:
         "Accuracy",
         format_percentage(accuracy),
     )
+
+
+def render_f1_card(f1: float | None) -> None:
+    """Render weighted F1 score."""
+    st.metric(
+        "Weighted F1",
+        format_percentage(f1),
+    )
