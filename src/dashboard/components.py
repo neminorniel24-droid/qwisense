@@ -705,3 +705,20 @@ def render_comparison_metrics(
             else f"{quantum_accuracy:.1%}"
         )
         st.metric("Quantum Accuracy", value)
+
+
+def render_signal_health(
+    quality: float | None,
+    status: str = "Ready",
+) -> None:
+    """Render signal health information."""
+    st.markdown("### 💚 Signal Health")
+
+    if quality is None:
+        st.metric("Quality", "—")
+    else:
+        if not 0.0 <= quality <= 1.0:
+            raise ValueError("quality must be between 0 and 1.")
+        st.metric("Quality", f"{quality:.1%}")
+
+    st.caption(f"Status: {status}")
