@@ -367,3 +367,8 @@ def render_sampling_rate_control(
 def render_preprocessing_status(status: str = "Ready") -> None:
     """Render preprocessing pipeline status."""
     st.metric("Preprocessing", status)
+
+
+def render_model_status(model: str, status: str = "Ready") -> None:
+    """Render active model status."""
+    st.metric(f"{model} Status", status)

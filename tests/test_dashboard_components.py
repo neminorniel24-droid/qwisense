@@ -183,3 +183,8 @@ def test_sampling_rate_control_is_importable():
 def test_preprocessing_status_is_importable():
     from src.dashboard.components import render_preprocessing_status
     assert callable(render_preprocessing_status)
+
+
+def test_model_status_is_importable():
+    from src.dashboard.components import render_model_status
+    assert callable(render_model_status)
