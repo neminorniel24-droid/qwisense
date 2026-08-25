@@ -323,3 +323,23 @@ def render_dataset_selector(sources: list[str], default: int = 0) -> str:
         raise ValueError("default must reference a valid source.")
 
     return st.selectbox("Dataset", sources, index=default)
+
+
+def render_window_size_control(
+    minimum: int = 50,
+    maximum: int = 1000,
+    default: int = 200,
+) -> int:
+    """Render a CSI window-size control."""
+    if minimum > maximum:
+        raise ValueError("minimum must not exceed maximum.")
+    if not minimum <= default <= maximum:
+        raise ValueError("default must be within the allowed range.")
+
+    return st.number_input(
+        "Window samples",
+        min_value=minimum,
+        max_value=maximum,
+        value=default,
+        step=10,
+    )
