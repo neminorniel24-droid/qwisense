@@ -69,3 +69,14 @@ def test_load_dataset_falls_back_when_falldefi_is_missing(tmp_path):
     assert meta["n_samples"] == 8
     assert len(X) == 8
     assert len(y) == 8
+
+
+def test_generate_synthetic_csi_preserves_requested_sample_count():
+    for n_samples in (4, 8, 12, 20):
+        X, y = generate_synthetic_csi(
+            n_samples=n_samples,
+            random_seed=42,
+        )
+
+        assert X.shape[0] == n_samples
+        assert y.shape[0] == n_samples
