@@ -1160,3 +1160,26 @@ def format_latency(value: float | None) -> str:
         raise ValueError("latency must not be negative.")
 
     return f"{value:.1f} ms"
+
+
+def render_component_guide() -> None:
+    """Show the dashboard component categories."""
+    with st.expander("🧩 Dashboard Components"):
+        st.markdown(
+            """
+            **Signal**
+            - CSI overview
+            - Signal statistics
+            - Amplitude and phase previews
+
+            **Inference**
+            - Activity prediction
+            - Confidence
+            - Latency
+
+            **Models**
+            - Classical baseline
+            - Quantum VQC
+            - Model comparison
+            """
+        )

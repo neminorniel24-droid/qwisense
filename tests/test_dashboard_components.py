@@ -571,3 +571,8 @@ def test_format_latency():
 
     assert format_latency(12.345) == "12.3 ms"
     assert format_latency(None) == "—"
+
+
+def test_component_guide_is_importable():
+    from src.dashboard.components import render_component_guide
+    assert callable(render_component_guide)
