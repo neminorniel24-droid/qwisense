@@ -362,3 +362,8 @@ def test_signal_overview_component_is_importable():
 def test_quantum_model_card_is_importable():
     from src.dashboard.components import render_quantum_model_card
     assert callable(render_quantum_model_card)
+
+
+def test_classical_model_card_is_importable():
+    from src.dashboard.components import render_classical_model_card
+    assert callable(render_classical_model_card)

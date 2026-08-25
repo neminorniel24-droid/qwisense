@@ -670,3 +670,12 @@ def render_quantum_model_card(
         st.caption(f"Qubits: {qubits}")
     else:
         st.caption("Quantum circuit configuration unavailable.")
+
+
+def render_classical_model_card(
+    model_name: str = "Random Forest",
+) -> None:
+    """Render classical-model information."""
+    st.markdown("### 🤖 Classical Model")
+    st.markdown(f"**Model:** {model_name}")
+    st.caption("Classical baseline for activity recognition.")
