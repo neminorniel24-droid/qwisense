@@ -134,3 +134,9 @@ def test_last_updated_component_is_importable():
     from src.dashboard.components import render_last_updated
 
     assert callable(render_last_updated)
+
+
+def test_progress_component_is_importable():
+    from src.dashboard.components import render_progress
+
+    assert callable(render_progress)

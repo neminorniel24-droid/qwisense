@@ -275,3 +275,12 @@ def render_refresh_button(label: str = "Refresh data") -> bool:
 def render_last_updated(timestamp: str) -> None:
     """Render the last-updated timestamp."""
     st.caption(f"Last updated: {timestamp}")
+
+
+def render_progress(label: str, value: float) -> None:
+    """Render a bounded progress indicator."""
+    if not 0.0 <= value <= 1.0:
+        raise ValueError("value must be between 0 and 1.")
+
+    st.caption(label)
+    st.progress(value)
