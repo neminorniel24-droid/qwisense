@@ -790,3 +790,27 @@ def render_signal_chart_header(title: str = "CSI Signal") -> None:
     """Render a signal-chart heading."""
     st.markdown(f"### 📈 {title}")
     st.caption("Wireless channel-state information visualization.")
+
+
+def render_signal_statistics(
+    mean: float | None,
+    minimum: float | None,
+    maximum: float | None,
+) -> None:
+    """Render basic signal statistics."""
+    st.markdown("### 📊 Signal Statistics")
+
+    cols = st.columns(3)
+
+    values = [
+        ("Mean", mean),
+        ("Minimum", minimum),
+        ("Maximum", maximum),
+    ]
+
+    for column, (label, value) in zip(cols, values):
+        with column:
+            st.metric(
+                label,
+                "—" if value is None else f"{value:.3f}",
+            )
