@@ -564,3 +564,10 @@ def test_format_percentage():
 
     assert format_percentage(0.95) == "95.0%"
     assert format_percentage(None) == "—"
+
+
+def test_format_latency():
+    from src.dashboard.components import format_latency
+
+    assert format_latency(12.345) == "12.3 ms"
+    assert format_latency(None) == "—"

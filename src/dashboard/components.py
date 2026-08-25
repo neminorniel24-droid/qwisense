@@ -1149,3 +1149,14 @@ def format_percentage(value: float | None) -> str:
         raise ValueError("percentage value must be between 0 and 1.")
 
     return f"{value:.1%}"
+
+
+def format_latency(value: float | None) -> str:
+    """Format inference latency."""
+    if value is None:
+        return "—"
+
+    if value < 0:
+        raise ValueError("latency must not be negative.")
+
+    return f"{value:.1f} ms"
