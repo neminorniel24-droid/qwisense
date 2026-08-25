@@ -74,3 +74,9 @@ def test_data_status_component_is_importable():
     from src.dashboard.components import render_data_status
 
     assert callable(render_data_status)
+
+
+def test_pipeline_status_component_is_importable():
+    from src.dashboard.components import render_pipeline_status
+
+    assert callable(render_pipeline_status)

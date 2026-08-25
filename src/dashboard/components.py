@@ -145,3 +145,19 @@ def render_data_status(samples: int, source: str) -> None:
 
     with cols[1]:
         st.metric("Source", source)
+
+
+def render_pipeline_status(
+    preprocessing: str = "Ready",
+    inference: str = "Ready",
+) -> None:
+    """Render preprocessing and inference status."""
+    st.markdown("### ⚙️ Pipeline Status")
+
+    cols = st.columns(2)
+
+    with cols[0]:
+        st.metric("Preprocessing", preprocessing)
+
+    with cols[1]:
+        st.metric("Inference", inference)
