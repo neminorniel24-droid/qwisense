@@ -161,3 +161,11 @@ def render_pipeline_status(
 
     with cols[1]:
         st.metric("Inference", inference)
+
+
+def render_activity_classes(classes: dict[int, str]) -> None:
+    """Render supported activity classes."""
+    st.markdown("### 🏷️ Activity Classes")
+
+    for class_id, name in classes.items():
+        st.write(f"**{class_id}** — {name}")

@@ -80,3 +80,9 @@ def test_pipeline_status_component_is_importable():
     from src.dashboard.components import render_pipeline_status
 
     assert callable(render_pipeline_status)
+
+
+def test_activity_classes_component_is_importable():
+    from src.dashboard.components import render_activity_classes
+
+    assert callable(render_activity_classes)
