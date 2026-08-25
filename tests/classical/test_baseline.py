@@ -591,3 +591,32 @@ def test_train_evaluate_preserves_model_identity():
 
     assert result["model"] is model
     assert hasattr(result["model"], "classes_")
+
+
+def test_train_evaluate_model_contains_all_training_classes():
+    from sklearn.dummy import DummyClassifier
+
+    X_train = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+        [0.1], [1.1], [2.1], [3.1],
+    ])
+    y_train = np.array([0, 1, 2, 3, 0, 1, 2, 3])
+
+    X_test = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+    ])
+    y_test = np.array([0, 1, 2, 3])
+
+    result = train_evaluate(
+        DummyClassifier(strategy="prior"),
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+        "Classes Test",
+    )
+
+    np.testing.assert_array_equal(
+        result["model"].classes_,
+        np.array([0, 1, 2, 3]),
+    )
