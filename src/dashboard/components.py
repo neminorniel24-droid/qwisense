@@ -1192,3 +1192,15 @@ def render_dashboard_header(title: str = "QwiSense") -> None:
 
     st.title(f"📡 {title}")
     st.caption("Quantum-enhanced WiFi human sensing")
+
+
+def render_section_navigation(sections: list[str]) -> str:
+    """Render dashboard section navigation."""
+    if not sections:
+        raise ValueError("sections must not be empty.")
+
+    return st.radio(
+        "Dashboard section",
+        sections,
+        horizontal=True,
+    )

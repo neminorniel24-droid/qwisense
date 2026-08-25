@@ -581,3 +581,8 @@ def test_component_guide_is_importable():
 def test_dashboard_header_is_importable():
     from src.dashboard.components import render_dashboard_header
     assert callable(render_dashboard_header)
+
+
+def test_section_navigation_is_importable():
+    from src.dashboard.components import render_section_navigation
+    assert callable(render_section_navigation)
