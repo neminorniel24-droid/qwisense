@@ -179,3 +179,28 @@ def render_confidence_metric(confidence: float | None) -> None:
 
     bounded = max(0.0, min(1.0, confidence))
     st.metric("Confidence", f"{bounded:.1%}")
+
+
+def render_dashboard_summary(
+    activity: str,
+    confidence: float | None,
+    samples: int,
+    model: str,
+) -> None:
+    """Render the primary dashboard summary."""
+    st.markdown("## 📊 Sensing Overview")
+
+    cols = st.columns(4)
+
+    with cols[0]:
+        st.metric("Activity", activity)
+
+    with cols[1]:
+        value = "—" if confidence is None else f"{confidence:.1%}"
+        st.metric("Confidence", value)
+
+    with cols[2]:
+        st.metric("Samples", samples)
+
+    with cols[3]:
+        st.metric("Model", model)

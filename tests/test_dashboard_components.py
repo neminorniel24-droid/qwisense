@@ -92,3 +92,9 @@ def test_confidence_metric_component_is_importable():
     from src.dashboard.components import render_confidence_metric
 
     assert callable(render_confidence_metric)
+
+
+def test_dashboard_summary_component_is_importable():
+    from src.dashboard.components import render_dashboard_summary
+
+    assert callable(render_dashboard_summary)
