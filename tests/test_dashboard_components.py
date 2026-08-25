@@ -163,3 +163,8 @@ def test_technical_details_component_is_importable():
 def test_confidence_badge_component_is_importable():
     from src.dashboard.components import render_confidence_badge
     assert callable(render_confidence_badge)
+
+
+def test_dataset_selector_component_is_importable():
+    from src.dashboard.components import render_dataset_selector
+    assert callable(render_dataset_selector)

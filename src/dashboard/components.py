@@ -313,3 +313,13 @@ def render_confidence_badge(confidence: float | None) -> None:
         raise ValueError("confidence must be between 0 and 1.")
 
     st.caption(f"Confidence: **{confidence:.1%}**")
+
+
+def render_dataset_selector(sources: list[str], default: int = 0) -> str:
+    """Render a dataset source selector."""
+    if not sources:
+        raise ValueError("sources must contain at least one item.")
+    if not 0 <= default < len(sources):
+        raise ValueError("default must reference a valid source.")
+
+    return st.selectbox("Dataset", sources, index=default)
