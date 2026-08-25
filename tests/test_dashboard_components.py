@@ -514,3 +514,9 @@ def test_confidence_distribution_is_importable():
     from src.dashboard.components import render_confidence_distribution
 
     assert callable(render_confidence_distribution)
+
+
+def test_analytics_section_is_importable():
+    from src.dashboard.components import render_analytics_section
+
+    assert callable(render_analytics_section)

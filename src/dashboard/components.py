@@ -1027,3 +1027,12 @@ def render_confidence_distribution(values) -> None:
 
     st.markdown("### 📈 Confidence Distribution")
     st.bar_chart(list(values), use_container_width=True)
+
+
+def render_analytics_section() -> None:
+    """Render the analytics section heading."""
+    st.markdown("## 📊 Analytics")
+    st.caption(
+        "Inspect CSI signals, predictions, confidence, "
+        "and model performance."
+    )
