@@ -324,3 +324,31 @@ def test_train_evaluate_predictions_match_test_size():
 
     assert len(result["y_pred"]) == len(y_test)
     assert result["y_pred"].ndim == 1
+
+
+def test_svm_probability_output_has_expected_shape():
+    from sklearn.svm import SVC
+
+    X_train = np.array([
+        [0.0, 0.0], [1.0, 1.0], [2.0, 2.0], [3.0, 3.0],
+        [0.1, 0.1], [1.1, 1.1], [2.1, 2.1], [3.1, 3.1],
+    ])
+    y_train = np.array([0, 1, 2, 3, 0, 1, 2, 3])
+
+    model = SVC(
+        kernel="rbf",
+        probability=True,
+        random_state=42,
+    )
+
+    model.fit(X_train, y_train)
+
+    probabilities = model.predict_proba(X_train[:4])
+
+    assert probabilities.shape == (4, 4)
+    np.testing.assert_allclose(
+        probabilities.sum(axis=1),
+        np.ones(4),
+        rtol=1e-6,
+        atol=1e-6,
+    )
