@@ -535,3 +535,8 @@ def test_panel_component_is_importable():
 def test_model_confidence_is_importable():
     from src.dashboard.components import render_model_confidence
     assert callable(render_model_confidence)
+
+
+def test_prediction_status_is_importable():
+    from src.dashboard.components import render_prediction_status
+    assert callable(render_prediction_status)

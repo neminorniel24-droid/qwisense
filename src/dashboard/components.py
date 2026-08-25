@@ -1096,3 +1096,21 @@ def render_model_confidence(
             "Quantum",
             "—" if quantum is None else f"{quantum:.1%}",
         )
+
+
+def render_prediction_status(
+    activity: str,
+    confidence: float | None,
+) -> None:
+    """Render prediction status."""
+    if confidence is not None and not 0 <= confidence <= 1:
+        raise ValueError("confidence must be between 0 and 1.")
+
+    if confidence is None:
+        st.info(f"Prediction: {activity}")
+    elif confidence >= 0.8:
+        st.success(f"High-confidence prediction: {activity}")
+    elif confidence >= 0.5:
+        st.warning(f"Moderate-confidence prediction: {activity}")
+    else:
+        st.warning(f"Low-confidence prediction: {activity}")
