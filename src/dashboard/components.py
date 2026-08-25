@@ -889,3 +889,11 @@ def render_subcarrier_selector(
         max_value=maximum,
         value=minimum,
     )
+
+
+def render_visualization_toggle(default: bool = True) -> bool:
+    """Toggle signal visualization."""
+    return st.toggle(
+        "Show signal visualization",
+        value=default,
+    )

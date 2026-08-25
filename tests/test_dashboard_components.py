@@ -437,3 +437,8 @@ def test_channel_selector_is_importable():
 def test_subcarrier_selector_is_importable():
     from src.dashboard.components import render_subcarrier_selector
     assert callable(render_subcarrier_selector)
+
+
+def test_visualization_toggle_is_importable():
+    from src.dashboard.components import render_visualization_toggle
+    assert callable(render_visualization_toggle)
