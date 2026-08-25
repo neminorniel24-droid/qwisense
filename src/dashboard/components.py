@@ -294,3 +294,10 @@ def render_warning_banner(message: str) -> None:
 def render_success_banner(message: str) -> None:
     """Render a prominent dashboard success message."""
     st.success(f"✓ {message}")
+
+
+def render_technical_details(details: dict[str, str]) -> None:
+    """Render technical dashboard details in an expandable panel."""
+    with st.expander("🔬 Technical Details"):
+        for key, value in details.items():
+            st.write(f"**{key}:** {value}")

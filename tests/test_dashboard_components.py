@@ -152,3 +152,9 @@ def test_success_banner_component_is_importable():
     from src.dashboard.components import render_success_banner
 
     assert callable(render_success_banner)
+
+
+def test_technical_details_component_is_importable():
+    from src.dashboard.components import render_technical_details
+
+    assert callable(render_technical_details)
