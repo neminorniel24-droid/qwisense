@@ -666,3 +666,8 @@ def test_model_performance_summary_is_importable():
 def test_system_health_is_importable():
     from src.dashboard.components import render_system_health
     assert callable(render_system_health)
+
+
+def test_footer_metadata_is_importable():
+    from src.dashboard.components import render_footer_metadata
+    assert callable(render_footer_metadata)

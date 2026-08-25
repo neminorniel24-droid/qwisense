@@ -1361,3 +1361,11 @@ def render_system_health(
 
     with cols[2]:
         st.metric("Model", model)
+
+
+def render_footer_metadata(version: str, environment: str) -> None:
+    """Render dashboard metadata."""
+    st.divider()
+    st.caption(
+        f"QwiSense v{version} • Environment: {environment}"
+    )
