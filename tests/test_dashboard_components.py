@@ -274,3 +274,8 @@ def test_inference_mode_selector_is_importable():
 def test_model_comparison_header_is_importable():
     from src.dashboard.components import render_model_comparison_header
     assert callable(render_model_comparison_header)
+
+
+def test_dashboard_help_is_importable():
+    from src.dashboard.components import render_dashboard_help
+    assert callable(render_dashboard_help)

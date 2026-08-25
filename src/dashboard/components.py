@@ -511,3 +511,17 @@ def render_model_comparison_header() -> None:
     """Render the model-comparison section header."""
     st.markdown("### ⚖️ Model Comparison")
     st.caption("Compare classical and quantum model performance.")
+
+
+def render_dashboard_help() -> None:
+    """Render a concise dashboard usage guide."""
+    with st.expander("❓ How to use QwiSense"):
+        st.markdown(
+            """
+            1. Select a dataset.
+            2. Configure preprocessing parameters.
+            3. Choose a model.
+            4. Run inference.
+            5. Review activity and confidence.
+            """
+        )
