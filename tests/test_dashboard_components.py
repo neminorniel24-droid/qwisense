@@ -377,3 +377,8 @@ def test_comparison_metrics_is_importable():
 def test_signal_health_is_importable():
     from src.dashboard.components import render_signal_health
     assert callable(render_signal_health)
+
+
+def test_inference_summary_is_importable():
+    from src.dashboard.components import render_inference_summary
+    assert callable(render_inference_summary)

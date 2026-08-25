@@ -722,3 +722,29 @@ def render_signal_health(
         st.metric("Quality", f"{quality:.1%}")
 
     st.caption(f"Status: {status}")
+
+
+def render_inference_summary(
+    activity: str,
+    confidence: float | None,
+    latency_ms: float | None,
+) -> None:
+    """Render a compact inference summary."""
+    st.markdown("### 🧠 Inference Summary")
+
+    cols = st.columns(3)
+
+    with cols[0]:
+        st.metric("Activity", activity)
+
+    with cols[1]:
+        st.metric(
+            "Confidence",
+            "—" if confidence is None else f"{confidence:.1%}",
+        )
+
+    with cols[2]:
+        st.metric(
+            "Latency",
+            "—" if latency_ms is None else f"{latency_ms:.1f} ms",
+        )
