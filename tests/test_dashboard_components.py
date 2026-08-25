@@ -576,3 +576,8 @@ def test_format_latency():
 def test_component_guide_is_importable():
     from src.dashboard.components import render_component_guide
     assert callable(render_component_guide)
+
+
+def test_dashboard_header_is_importable():
+    from src.dashboard.components import render_dashboard_header
+    assert callable(render_dashboard_header)

@@ -1183,3 +1183,12 @@ def render_component_guide() -> None:
             - Model comparison
             """
         )
+
+
+def render_dashboard_header(title: str = "QwiSense") -> None:
+    """Render the primary dashboard header."""
+    if not title.strip():
+        raise ValueError("title must not be empty.")
+
+    st.title(f"📡 {title}")
+    st.caption("Quantum-enhanced WiFi human sensing")
