@@ -592,3 +592,15 @@ def render_prediction_history(history: list[dict]) -> None:
         return
 
     st.dataframe(history, use_container_width=True)
+
+
+def render_recent_events(events: list[str]) -> None:
+    """Render recent sensing events."""
+    st.markdown("### 🕘 Recent Events")
+
+    if not events:
+        st.info("No recent events.")
+        return
+
+    for event in events:
+        st.write(f"• {event}")

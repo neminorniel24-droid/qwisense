@@ -328,3 +328,9 @@ def test_prediction_history_component_is_importable():
     from src.dashboard.components import render_prediction_history
 
     assert callable(render_prediction_history)
+
+
+def test_recent_events_component_is_importable():
+    from src.dashboard.components import render_recent_events
+
+    assert callable(render_recent_events)
