@@ -216,3 +216,28 @@ def test_plot_comparison_handles_empty_results(tmp_path):
 
     import matplotlib.pyplot as plt
     plt.close(fig)
+
+
+def test_plot_comparison_supports_multiple_models(tmp_path):
+    import matplotlib
+    matplotlib.use("Agg")
+
+    from src.classical.baseline import plot_comparison
+
+    results = [
+        {"name": "SVM", "accuracy": 0.80, "f1_fall": 0.75},
+        {"name": "Random Forest", "accuracy": 0.90, "f1_fall": 0.85},
+        {"name": "Extra Trees", "accuracy": 0.92, "f1_fall": 0.88},
+    ]
+
+    output = tmp_path / "multi_model_comparison.png"
+
+    fig = plot_comparison(results, save_path=str(output))
+
+    assert fig is not None
+    assert len(fig.axes) == 1
+    assert output.exists()
+    assert output.stat().st_size > 0
+
+    import matplotlib.pyplot as plt
+    plt.close(fig)
