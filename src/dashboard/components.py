@@ -1327,3 +1327,17 @@ def render_fall_f1_card(f1: float | None) -> None:
         "Fall F1",
         format_percentage(f1),
     )
+
+
+def render_model_performance_summary(
+    accuracy: float | None,
+    f1: float | None,
+) -> None:
+    """Render compact model performance."""
+    cols = st.columns(2)
+
+    with cols[0]:
+        render_accuracy_card(accuracy)
+
+    with cols[1]:
+        render_f1_card(f1)
