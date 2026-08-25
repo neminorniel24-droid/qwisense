@@ -116,3 +116,9 @@ def test_sample_count_control_is_importable():
     from src.dashboard.components import render_sample_count_control
 
     assert callable(render_sample_count_control)
+
+
+def test_inference_button_component_is_importable():
+    from src.dashboard.components import render_inference_button
+
+    assert callable(render_inference_button)

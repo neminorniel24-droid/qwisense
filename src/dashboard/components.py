@@ -253,3 +253,12 @@ def render_sample_count_control(
         max_value=maximum,
         value=default,
     )
+
+
+def render_inference_button(label: str = "Run inference") -> bool:
+    """Render the primary inference action."""
+    return st.button(
+        label,
+        type="primary",
+        use_container_width=True,
+    )
