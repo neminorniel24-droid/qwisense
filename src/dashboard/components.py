@@ -1214,3 +1214,17 @@ def render_date_range_filter():
         "Date range",
         value=(dt.date.today(), dt.date.today()),
     )
+
+
+def render_activity_filter(
+    activities: list[str],
+) -> list[str]:
+    """Render a multi-select activity filter."""
+    if not activities:
+        raise ValueError("activities must not be empty.")
+
+    return st.multiselect(
+        "Activities",
+        activities,
+        default=activities,
+    )

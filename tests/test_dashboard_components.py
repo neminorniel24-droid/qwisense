@@ -591,3 +591,8 @@ def test_section_navigation_is_importable():
 def test_date_range_filter_is_importable():
     from src.dashboard.components import render_date_range_filter
     assert callable(render_date_range_filter)
+
+
+def test_activity_filter_is_importable():
+    from src.dashboard.components import render_activity_filter
+    assert callable(render_activity_filter)
