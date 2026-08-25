@@ -897,3 +897,11 @@ def render_visualization_toggle(default: bool = True) -> bool:
         "Show signal visualization",
         value=default,
     )
+
+
+def render_chart_empty_state(chart_name: str = "Signal") -> None:
+    """Render an empty state for unavailable chart data."""
+    if not chart_name.strip():
+        raise ValueError("chart_name must not be empty.")
+
+    st.info(f"No {chart_name.lower()} data available yet.")
