@@ -1279,3 +1279,11 @@ def render_walking_count(count: int) -> None:
         raise ValueError("count must not be negative.")
 
     st.metric("Walking Events", count)
+
+
+def render_presence_count(count: int) -> None:
+    """Render detected presence count."""
+    if count < 0:
+        raise ValueError("count must not be negative.")
+
+    st.metric("Presence Events", count)
