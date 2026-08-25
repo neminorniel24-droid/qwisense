@@ -17,3 +17,18 @@ def test_metric_row_component_is_importable():
     from src.dashboard.components import render_metric_row
 
     assert callable(render_metric_row)
+
+
+def test_alert_component_is_importable():
+    from src.dashboard.components import render_alert
+
+    assert callable(render_alert)
+
+
+def test_alert_rejects_unknown_level():
+    import pytest
+
+    from src.dashboard.components import render_alert
+
+    with pytest.raises(ValueError, match="level must be"):
+        render_alert("test", level="unknown")

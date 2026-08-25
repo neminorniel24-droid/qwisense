@@ -64,3 +64,22 @@ def render_metric_row(metrics: list[tuple[str, str]]) -> None:
     for column, (label, value) in zip(columns, metrics):
         with column:
             render_kpi(label, value)
+
+
+def render_alert(message: str, level: str = "info") -> None:
+    """Render a dashboard status message."""
+    levels = {
+        "info": st.info,
+        "success": st.success,
+        "warning": st.warning,
+        "error": st.error,
+    }
+
+    renderer = levels.get(level)
+
+    if renderer is None:
+        raise ValueError(
+            "level must be one of: info, success, warning, error"
+        )
+
+    renderer(message)
