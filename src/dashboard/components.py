@@ -1004,3 +1004,18 @@ def render_evaluation_metrics(
         with column:
             display = "—" if value is None else f"{value:.1%}"
             st.metric(label, display)
+
+
+def render_model_comparison_table(models: list[dict]) -> None:
+    """Render a model comparison table."""
+    st.markdown("### ⚖️ Model Comparison")
+
+    if not models:
+        st.info("No model comparison data available.")
+        return
+
+    st.dataframe(
+        models,
+        use_container_width=True,
+        hide_index=True,
+    )

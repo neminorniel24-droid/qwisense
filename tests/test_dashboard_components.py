@@ -502,3 +502,9 @@ def test_evaluation_metrics_is_importable():
     from src.dashboard.components import render_evaluation_metrics
 
     assert callable(render_evaluation_metrics)
+
+
+def test_model_comparison_table_is_importable():
+    from src.dashboard.components import render_model_comparison_table
+
+    assert callable(render_model_comparison_table)
