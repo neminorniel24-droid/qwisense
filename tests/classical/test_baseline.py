@@ -620,3 +620,31 @@ def test_train_evaluate_model_contains_all_training_classes():
         result["model"].classes_,
         np.array([0, 1, 2, 3]),
     )
+
+
+def test_train_evaluate_preserves_test_sample_count():
+    from sklearn.dummy import DummyClassifier
+
+    X_train = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+        [0.1], [1.1], [2.1], [3.1],
+    ])
+    y_train = np.array([0, 1, 2, 3, 0, 1, 2, 3])
+
+    X_test = np.array([
+        [0.0], [1.0], [2.0], [3.0],
+        [0.5], [1.5],
+    ])
+    y_test = np.array([0, 1, 2, 3, 0, 1])
+
+    result = train_evaluate(
+        DummyClassifier(strategy="prior"),
+        X_train,
+        X_test,
+        y_train,
+        y_test,
+        "Sample Count Test",
+    )
+
+    assert result["confusion_matrix"].sum() == len(y_test)
+    assert len(result["y_pred"]) == len(y_test)
