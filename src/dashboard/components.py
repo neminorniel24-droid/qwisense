@@ -1643,3 +1643,10 @@ def render_breadcrumb(items: list[str]) -> None:
         raise ValueError("items must not be empty.")
 
     st.caption(" / ".join(items))
+
+
+def render_sidebar_info(version: str) -> None:
+    """Render compact sidebar product information."""
+    with st.sidebar:
+        st.caption(f"QwiSense Dashboard v{version}")
+        st.caption("WiFi human sensing")
