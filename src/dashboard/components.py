@@ -233,3 +233,23 @@ def render_activity_selector(activities: list[str]) -> str:
         "Activity",
         activities,
     )
+
+
+def render_sample_count_control(
+    minimum: int = 1,
+    maximum: int = 1000,
+    default: int = 100,
+) -> int:
+    """Render a sample-count control."""
+    if minimum > maximum:
+        raise ValueError("minimum must not exceed maximum.")
+
+    if not minimum <= default <= maximum:
+        raise ValueError("default must be within the allowed range.")
+
+    return st.slider(
+        "Sample count",
+        min_value=minimum,
+        max_value=maximum,
+        value=default,
+    )
