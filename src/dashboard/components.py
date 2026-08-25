@@ -1240,3 +1240,12 @@ def render_model_filter(models: list[str]) -> list[str]:
         models,
         default=models,
     )
+
+
+def render_activity_chart(distribution: dict[str, int]) -> None:
+    """Render activity distribution as a chart."""
+    if not distribution:
+        st.info("No activity distribution available.")
+        return
+
+    st.bar_chart(distribution)

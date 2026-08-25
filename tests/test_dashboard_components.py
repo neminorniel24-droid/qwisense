@@ -601,3 +601,8 @@ def test_activity_filter_is_importable():
 def test_model_filter_is_importable():
     from src.dashboard.components import render_model_filter
     assert callable(render_model_filter)
+
+
+def test_activity_chart_is_importable():
+    from src.dashboard.components import render_activity_chart
+    assert callable(render_activity_chart)
