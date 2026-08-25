@@ -50,3 +50,9 @@ def test_empty_state_component_is_importable():
     from src.dashboard.components import render_empty_state
 
     assert callable(render_empty_state)
+
+
+def test_loading_state_component_is_importable():
+    from src.dashboard.components import render_loading_state
+
+    assert callable(render_loading_state)

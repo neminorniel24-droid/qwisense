@@ -107,3 +107,9 @@ def render_empty_state(title: str, message: str) -> None:
     """Render an empty-state message."""
     st.markdown(f"### {title}")
     st.info(message)
+
+
+def render_loading_state(message: str = "Loading QwiSense data...") -> None:
+    """Render a dashboard loading indicator."""
+    with st.spinner(message):
+        st.empty()
