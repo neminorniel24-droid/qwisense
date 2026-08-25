@@ -929,3 +929,11 @@ def validate_signal_data(values) -> bool:
         raise ValueError("signal data must be numeric.") from exc
 
     return True
+
+
+def render_signal_preview(values, title: str = "Signal Preview") -> None:
+    """Render a lightweight signal preview."""
+    validate_signal_data(values)
+
+    st.markdown(f"### 📈 {title}")
+    st.line_chart(list(values), use_container_width=True)

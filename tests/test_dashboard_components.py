@@ -466,3 +466,9 @@ def test_validate_signal_data_rejects_empty_values():
 
     with pytest.raises(ValueError, match="must not be empty"):
         validate_signal_data([])
+
+
+def test_signal_preview_is_importable():
+    from src.dashboard.components import render_signal_preview
+
+    assert callable(render_signal_preview)
