@@ -11,3 +11,9 @@ def test_activity_badge_component_is_importable():
     from src.dashboard.components import render_activity_badge
 
     assert callable(render_activity_badge)
+
+
+def test_metric_row_component_is_importable():
+    from src.dashboard.components import render_metric_row
+
+    assert callable(render_metric_row)

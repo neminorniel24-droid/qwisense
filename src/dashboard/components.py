@@ -55,3 +55,12 @@ def render_activity_badge(activity: str, confidence: float | None = None) -> Non
         """,
         unsafe_allow_html=True,
     )
+
+
+def render_metric_row(metrics: list[tuple[str, str]]) -> None:
+    """Render multiple dashboard metrics in a consistent row."""
+    columns = st.columns(len(metrics))
+
+    for column, (label, value) in zip(columns, metrics):
+        with column:
+            render_kpi(label, value)
