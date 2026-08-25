@@ -91,3 +91,17 @@ def test_generate_synthetic_csi_preserves_requested_sample_count():
 
         assert X.shape[0] == n_samples
         assert y.shape[0] == n_samples
+
+
+def test_generate_synthetic_csi_changes_with_random_seed():
+    X1, y1 = generate_synthetic_csi(
+        n_samples=20,
+        random_seed=1,
+    )
+
+    X2, y2 = generate_synthetic_csi(
+        n_samples=20,
+        random_seed=2,
+    )
+
+    assert not np.array_equal(X1, X2)
