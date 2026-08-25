@@ -496,3 +496,9 @@ def test_confusion_matrix_section_is_importable():
     from src.dashboard.components import render_confusion_matrix_section
 
     assert callable(render_confusion_matrix_section)
+
+
+def test_evaluation_metrics_is_importable():
+    from src.dashboard.components import render_evaluation_metrics
+
+    assert callable(render_evaluation_metrics)

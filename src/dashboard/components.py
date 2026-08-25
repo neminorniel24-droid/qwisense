@@ -982,3 +982,25 @@ def render_confusion_matrix_section(matrix) -> None:
         matrix,
         use_container_width=True,
     )
+
+
+def render_evaluation_metrics(
+    accuracy: float | None = None,
+    f1_weighted: float | None = None,
+    f1_fall: float | None = None,
+) -> None:
+    """Render evaluation metrics."""
+    st.markdown("### 📊 Evaluation Metrics")
+
+    metrics = [
+        ("Accuracy", accuracy),
+        ("Weighted F1", f1_weighted),
+        ("Fall F1", f1_fall),
+    ]
+
+    columns = st.columns(len(metrics))
+
+    for column, (label, value) in zip(columns, metrics):
+        with column:
+            display = "—" if value is None else f"{value:.1%}"
+            st.metric(label, display)
