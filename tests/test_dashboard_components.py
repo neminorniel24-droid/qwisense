@@ -751,3 +751,8 @@ def test_section_tabs_is_importable():
 def test_info_callout_is_importable():
     from src.dashboard.components import render_info_callout
     assert callable(render_info_callout)
+
+
+def test_quick_actions_is_importable():
+    from src.dashboard.components import render_quick_actions
+    assert callable(render_quick_actions)
