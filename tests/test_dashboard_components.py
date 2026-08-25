@@ -128,3 +128,9 @@ def test_refresh_button_component_is_importable():
     from src.dashboard.components import render_refresh_button
 
     assert callable(render_refresh_button)
+
+
+def test_last_updated_component_is_importable():
+    from src.dashboard.components import render_last_updated
+
+    assert callable(render_last_updated)

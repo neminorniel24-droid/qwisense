@@ -270,3 +270,8 @@ def render_refresh_button(label: str = "Refresh data") -> bool:
         f"↻ {label}",
         use_container_width=True,
     )
+
+
+def render_last_updated(timestamp: str) -> None:
+    """Render the last-updated timestamp."""
+    st.caption(f"Last updated: {timestamp}")
