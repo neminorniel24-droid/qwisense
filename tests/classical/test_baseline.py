@@ -133,3 +133,37 @@ def test_train_evaluate_confusion_matrix_counts_predictions():
     assert cm.shape == (4, 4)
     assert cm.sum() == len(y_test)
     assert result["y_pred"].shape == y_test.shape
+
+
+def test_plot_comparison_returns_figure(tmp_path):
+    import matplotlib
+    matplotlib.use("Agg")
+
+    from src.classical.baseline import plot_comparison
+
+    results = [
+        {
+            "name": "SVM",
+            "accuracy": 0.85,
+            "f1_fall": 0.80,
+        },
+        {
+            "name": "Random Forest",
+            "accuracy": 0.90,
+            "f1_fall": 0.88,
+        },
+    ]
+
+    output = tmp_path / "comparison.png"
+
+    fig = plot_comparison(
+        results,
+        save_path=str(output),
+    )
+
+    assert fig is not None
+    assert output.exists()
+    assert output.stat().st_size > 0
+
+    import matplotlib.pyplot as plt
+    plt.close(fig)
