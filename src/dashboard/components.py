@@ -1505,3 +1505,14 @@ def render_dashboard_state(
             "Inference",
             "Running" if inference_running else "Idle",
         )
+
+
+def render_page_title(title: str, subtitle: str = "") -> None:
+    """Render a consistent page title."""
+    if not title.strip():
+        raise ValueError("title must not be empty.")
+
+    st.title(title)
+
+    if subtitle:
+        st.caption(subtitle)

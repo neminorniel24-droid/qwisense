@@ -726,3 +726,8 @@ def test_inference_indicator_is_importable():
 def test_dashboard_state_is_importable():
     from src.dashboard.components import render_dashboard_state
     assert callable(render_dashboard_state)
+
+
+def test_page_title_is_importable():
+    from src.dashboard.components import render_page_title
+    assert callable(render_page_title)
