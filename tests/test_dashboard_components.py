@@ -316,3 +316,9 @@ def test_result_to_json():
 
     assert decoded["activity"] == "Walking"
     assert decoded["confidence"] == 0.9
+
+
+def test_accessible_note_component_is_importable():
+    from src.dashboard.components import render_accessible_note
+
+    assert callable(render_accessible_note)

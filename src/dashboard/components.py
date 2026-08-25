@@ -573,3 +573,11 @@ def result_to_json(result: dict) -> str:
         raise TypeError("result must be a dictionary.")
 
     return json.dumps(result, indent=2, default=str)
+
+
+def render_accessible_note(text: str) -> None:
+    """Render supplementary accessible dashboard guidance."""
+    if not text.strip():
+        raise ValueError("text must not be empty.")
+
+    st.caption(text)
