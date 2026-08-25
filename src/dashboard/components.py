@@ -855,3 +855,21 @@ def render_signal_mode_selector() -> str:
         ["Amplitude", "Phase", "Magnitude"],
         horizontal=True,
     )
+
+
+def render_channel_selector(
+    channels: list[int],
+    default: int = 0,
+) -> int:
+    """Select a CSI channel."""
+    if not channels:
+        raise ValueError("channels must not be empty.")
+
+    if not 0 <= default < len(channels):
+        raise ValueError("default must reference a valid channel.")
+
+    return st.selectbox(
+        "CSI channel",
+        channels,
+        index=default,
+    )

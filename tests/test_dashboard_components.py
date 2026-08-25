@@ -427,3 +427,8 @@ def test_preprocessing_config_is_importable():
 def test_signal_mode_selector_is_importable():
     from src.dashboard.components import render_signal_mode_selector
     assert callable(render_signal_mode_selector)
+
+
+def test_channel_selector_is_importable():
+    from src.dashboard.components import render_channel_selector
+    assert callable(render_channel_selector)
