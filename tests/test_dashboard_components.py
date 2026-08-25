@@ -452,3 +452,17 @@ def test_chart_empty_state_is_importable():
 def test_signal_controls_are_importable():
     from src.dashboard.components import render_signal_controls
     assert callable(render_signal_controls)
+
+
+def test_validate_signal_data_accepts_numeric_values():
+    from src.dashboard.components import validate_signal_data
+
+    assert validate_signal_data([1, 2, 3])
+
+
+def test_validate_signal_data_rejects_empty_values():
+    import pytest
+    from src.dashboard.components import validate_signal_data
+
+    with pytest.raises(ValueError, match="must not be empty"):
+        validate_signal_data([])

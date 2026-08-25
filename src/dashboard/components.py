@@ -913,3 +913,19 @@ def render_signal_controls() -> tuple[str, int]:
     subcarrier = render_subcarrier_selector()
 
     return mode, subcarrier
+
+
+def validate_signal_data(values) -> bool:
+    """Validate that signal data is non-empty and numeric."""
+    if values is None:
+        raise ValueError("signal data must not be None.")
+
+    if len(values) == 0:
+        raise ValueError("signal data must not be empty.")
+
+    try:
+        [float(value) for value in values]
+    except (TypeError, ValueError) as exc:
+        raise ValueError("signal data must be numeric.") from exc
+
+    return True
