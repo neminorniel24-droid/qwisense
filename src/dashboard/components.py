@@ -539,3 +539,19 @@ def build_export_filename(prefix: str, extension: str) -> str:
         raise ValueError("extension must not be empty.")
 
     return f"{clean_prefix}.{clean_extension}"
+
+
+def render_download_button(
+    label: str,
+    data: str | bytes,
+    filename: str,
+    mime: str,
+) -> bool:
+    """Render a reusable dashboard download button."""
+    return st.download_button(
+        label=label,
+        data=data,
+        file_name=filename,
+        mime=mime,
+        use_container_width=True,
+    )

@@ -285,3 +285,9 @@ def test_build_export_filename():
     from src.dashboard.components import build_export_filename
 
     assert build_export_filename("QwiSense Results", "csv") == "QwiSense_Results.csv"
+
+
+def test_download_button_component_is_importable():
+    from src.dashboard.components import render_download_button
+
+    assert callable(render_download_button)
