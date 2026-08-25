@@ -1579,3 +1579,11 @@ def render_connection_indicator(connected: bool) -> None:
         st.success("Sensor connected")
     else:
         st.warning("Sensor disconnected")
+
+
+def render_processing_indicator(processing: bool) -> None:
+    """Render preprocessing state."""
+    if processing:
+        st.info("Processing CSI data...")
+    else:
+        st.caption("Processing idle")
