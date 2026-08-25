@@ -1114,3 +1114,11 @@ def render_prediction_status(
         st.warning(f"Moderate-confidence prediction: {activity}")
     else:
         st.warning(f"Low-confidence prediction: {activity}")
+
+
+def render_activity_indicator(activity: str) -> None:
+    """Render an activity indicator with accessible text."""
+    if not activity.strip():
+        raise ValueError("activity must not be empty.")
+
+    st.markdown(f"**Current activity:** {activity}")
