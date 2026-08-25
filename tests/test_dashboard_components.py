@@ -207,3 +207,20 @@ def test_validate_model_name_rejects_unknown_model():
 
     with pytest.raises(ValueError, match="Unknown model"):
         validate_model_name("VQC", ["SVM", "Random Forest"])
+
+
+def test_activity_label_maps_known_classes():
+    from src.dashboard.components import activity_label
+
+    assert activity_label(0) == "Empty"
+    assert activity_label(1) == "Present"
+    assert activity_label(2) == "Walking"
+    assert activity_label(3) == "Fall"
+
+
+def test_activity_label_rejects_unknown_class():
+    import pytest
+    from src.dashboard.components import activity_label
+
+    with pytest.raises(ValueError, match="Unknown activity class"):
+        activity_label(99)

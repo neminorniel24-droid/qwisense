@@ -401,3 +401,18 @@ def validate_model_name(model_name: str, available_models: list[str]) -> str:
         raise ValueError(f"Unknown model: {model_name}")
 
     return model_name
+
+
+def activity_label(class_id: int) -> str:
+    """Convert a QwiSense activity class ID to its display label."""
+    labels = {
+        0: "Empty",
+        1: "Present",
+        2: "Walking",
+        3: "Fall",
+    }
+
+    if class_id not in labels:
+        raise ValueError(f"Unknown activity class: {class_id}")
+
+    return labels[class_id]
