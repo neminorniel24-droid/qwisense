@@ -1369,3 +1369,20 @@ def render_footer_metadata(version: str, environment: str) -> None:
     st.caption(
         f"QwiSense v{version} • Environment: {environment}"
     )
+
+
+def render_overview_dashboard(
+    activity: str,
+    confidence: float | None,
+    samples: int,
+    model: str,
+) -> None:
+    """Render the primary QwiSense overview."""
+    render_dashboard_header()
+    render_dashboard_summary(
+        activity=activity,
+        confidence=confidence,
+        samples=samples,
+        model=model,
+    )
+    render_prediction_status(activity, confidence)
