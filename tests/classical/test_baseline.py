@@ -409,3 +409,33 @@ def test_svm_uses_expected_configuration():
     assert model.gamma == "scale"
     assert model.probability is True
     assert model.random_state == 42
+
+
+def test_random_forest_uses_expected_configuration():
+    from sklearn.ensemble import RandomForestClassifier
+
+    model = RandomForestClassifier(
+        n_estimators=100,
+        random_state=42,
+    )
+
+    assert model.n_estimators == 100
+    assert model.random_state == 42
+
+
+def test_svm_uses_expected_configuration():
+    from sklearn.svm import SVC
+
+    model = SVC(
+        kernel="rbf",
+        C=10,
+        gamma="scale",
+        probability=True,
+        random_state=42,
+    )
+
+    assert model.kernel == "rbf"
+    assert model.C == 10
+    assert model.gamma == "scale"
+    assert model.probability is True
+    assert model.random_state == 42
