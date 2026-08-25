@@ -195,3 +195,24 @@ def test_plot_confusion_matrix_saves_figure(tmp_path):
 
     import matplotlib.pyplot as plt
     plt.close("all")
+
+
+def test_plot_comparison_handles_empty_results(tmp_path):
+    import matplotlib
+    matplotlib.use("Agg")
+
+    from src.classical.baseline import plot_comparison
+
+    output = tmp_path / "empty_comparison.png"
+
+    fig = plot_comparison(
+        [],
+        save_path=str(output),
+    )
+
+    assert fig is not None
+    assert output.exists()
+    assert output.stat().st_size > 0
+
+    import matplotlib.pyplot as plt
+    plt.close(fig)
