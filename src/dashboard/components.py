@@ -1433,3 +1433,22 @@ def render_info_callout(title: str, message: str) -> None:
         raise ValueError("title and message must not be empty.")
 
     st.info(f"**{title}** — {message}")
+
+
+def render_quick_actions() -> tuple[bool, bool]:
+    """Render common dashboard actions."""
+    cols = st.columns(2)
+
+    with cols[0]:
+        run = st.button(
+            "▶ Run inference",
+            use_container_width=True,
+        )
+
+    with cols[1]:
+        refresh = st.button(
+            "↻ Refresh",
+            use_container_width=True,
+        )
+
+    return run, refresh
