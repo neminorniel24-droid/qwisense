@@ -480,3 +480,19 @@ def render_activity_distribution(
 
     for activity, count in distribution.items():
         st.write(f"**{activity}** — {count}")
+
+
+def render_confidence_threshold(
+    default: float = 0.70,
+) -> float:
+    """Render the minimum confidence threshold."""
+    if not 0.0 <= default <= 1.0:
+        raise ValueError("default must be between 0 and 1.")
+
+    return st.slider(
+        "Confidence threshold",
+        min_value=0.0,
+        max_value=1.0,
+        value=default,
+        step=0.01,
+    )
