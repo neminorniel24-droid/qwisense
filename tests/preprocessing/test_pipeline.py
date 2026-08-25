@@ -69,3 +69,20 @@ def test_pipeline_fit_transform_and_transform_shapes():
     assert X_transformed.shape == (2, 32)
     assert np.all(np.isfinite(X_features))
     assert np.all(np.isfinite(X_transformed))
+
+
+def test_hampel_filter_leaves_constant_signal_unchanged():
+    signal = np.full(20, 3.5)
+
+    filtered = hampel_filter(signal)
+
+    np.testing.assert_array_equal(filtered, signal)
+
+
+def test_hampel_filter_handles_short_signal():
+    signal = np.array([1.0, 2.0, 1.0])
+
+    filtered = hampel_filter(signal)
+
+    assert filtered.shape == signal.shape
+    assert np.all(np.isfinite(filtered))
