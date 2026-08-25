@@ -968,3 +968,17 @@ def render_activity_history(history: list[dict]) -> None:
         use_container_width=True,
         hide_index=True,
     )
+
+
+def render_confusion_matrix_section(matrix) -> None:
+    """Render confusion-matrix data."""
+    st.markdown("### 🧩 Confusion Matrix")
+
+    if matrix is None:
+        st.info("No confusion matrix available.")
+        return
+
+    st.dataframe(
+        matrix,
+        use_container_width=True,
+    )

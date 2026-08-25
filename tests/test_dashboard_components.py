@@ -490,3 +490,9 @@ def test_activity_history_is_importable():
     from src.dashboard.components import render_activity_history
 
     assert callable(render_activity_history)
+
+
+def test_confusion_matrix_section_is_importable():
+    from src.dashboard.components import render_confusion_matrix_section
+
+    assert callable(render_confusion_matrix_section)
