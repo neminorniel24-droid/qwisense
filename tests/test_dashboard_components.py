@@ -178,3 +178,8 @@ def test_window_size_control_is_importable():
 def test_sampling_rate_control_is_importable():
     from src.dashboard.components import render_sampling_rate_control
     assert callable(render_sampling_rate_control)
+
+
+def test_preprocessing_status_is_importable():
+    from src.dashboard.components import render_preprocessing_status
+    assert callable(render_preprocessing_status)

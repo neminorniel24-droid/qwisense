@@ -362,3 +362,8 @@ def render_sampling_rate_control(
         max_value=maximum,
         value=default,
     )
+
+
+def render_preprocessing_status(status: str = "Ready") -> None:
+    """Render preprocessing pipeline status."""
+    st.metric("Preprocessing", status)
