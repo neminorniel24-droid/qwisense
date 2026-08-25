@@ -254,3 +254,8 @@ def test_latency_component_is_importable():
 def test_fall_alert_component_is_importable():
     from src.dashboard.components import render_fall_alert
     assert callable(render_fall_alert)
+
+
+def test_activity_distribution_component_is_importable():
+    from src.dashboard.components import render_activity_distribution
+    assert callable(render_activity_distribution)

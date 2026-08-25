@@ -466,3 +466,17 @@ def render_fall_alert(is_fall: bool) -> None:
         st.error("🚨 Fall activity detected")
     else:
         st.success("No fall detected")
+
+
+def render_activity_distribution(
+    distribution: dict[str, int],
+) -> None:
+    """Render activity counts as a dashboard table."""
+    st.markdown("### Activity Distribution")
+
+    if not distribution:
+        st.info("No activity data available.")
+        return
+
+    for activity, count in distribution.items():
+        st.write(f"**{activity}** — {count}")
