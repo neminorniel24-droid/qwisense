@@ -484,3 +484,9 @@ def test_phase_preview_is_importable():
     from src.dashboard.components import render_phase_preview
 
     assert callable(render_phase_preview)
+
+
+def test_activity_history_is_importable():
+    from src.dashboard.components import render_activity_history
+
+    assert callable(render_activity_history)

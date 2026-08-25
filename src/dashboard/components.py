@@ -953,3 +953,18 @@ def render_phase_preview(values) -> None:
         values,
         title="CSI Phase",
     )
+
+
+def render_activity_history(history: list[dict]) -> None:
+    """Render recent activity predictions."""
+    st.markdown("### 🕘 Activity History")
+
+    if not history:
+        st.info("No activity predictions available.")
+        return
+
+    st.dataframe(
+        history,
+        use_container_width=True,
+        hide_index=True,
+    )
