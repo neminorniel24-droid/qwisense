@@ -615,3 +615,15 @@ def render_model_metrics(metrics: dict[str, dict[str, float]]) -> None:
         return
 
     st.dataframe(metrics, use_container_width=True)
+
+
+def render_dataset_info(info: dict[str, str]) -> None:
+    """Render dataset metadata."""
+    st.markdown("### 📦 Dataset Information")
+
+    if not info:
+        st.info("No dataset metadata available.")
+        return
+
+    for key, value in info.items():
+        st.write(f"**{key}:** {value}")

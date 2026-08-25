@@ -340,3 +340,9 @@ def test_model_metrics_component_is_importable():
     from src.dashboard.components import render_model_metrics
 
     assert callable(render_model_metrics)
+
+
+def test_dataset_info_component_is_importable():
+    from src.dashboard.components import render_dataset_info
+
+    assert callable(render_dataset_info)
