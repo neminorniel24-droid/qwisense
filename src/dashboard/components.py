@@ -390,3 +390,14 @@ def render_sample_info(
 
     with cols[2]:
         st.metric("Window", window_samples)
+
+
+def validate_model_name(model_name: str, available_models: list[str]) -> str:
+    """Validate a selected model name."""
+    if not available_models:
+        raise ValueError("available_models must not be empty.")
+
+    if model_name not in available_models:
+        raise ValueError(f"Unknown model: {model_name}")
+
+    return model_name

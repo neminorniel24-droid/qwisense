@@ -193,3 +193,17 @@ def test_model_status_is_importable():
 def test_sample_info_component_is_importable():
     from src.dashboard.components import render_sample_info
     assert callable(render_sample_info)
+
+
+def test_validate_model_name_accepts_known_model():
+    from src.dashboard.components import validate_model_name
+
+    assert validate_model_name("SVM", ["SVM", "Random Forest"]) == "SVM"
+
+
+def test_validate_model_name_rejects_unknown_model():
+    import pytest
+    from src.dashboard.components import validate_model_name
+
+    with pytest.raises(ValueError, match="Unknown model"):
+        validate_model_name("VQC", ["SVM", "Random Forest"])
