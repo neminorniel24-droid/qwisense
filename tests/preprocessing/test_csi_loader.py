@@ -80,3 +80,14 @@ def test_generate_synthetic_csi_preserves_requested_sample_count():
 
         assert X.shape[0] == n_samples
         assert y.shape[0] == n_samples
+
+
+def test_generate_synthetic_csi_preserves_requested_sample_count():
+    for n_samples in (4, 8, 12, 20):
+        X, y = generate_synthetic_csi(
+            n_samples=n_samples,
+            random_seed=42,
+        )
+
+        assert X.shape[0] == n_samples
+        assert y.shape[0] == n_samples
