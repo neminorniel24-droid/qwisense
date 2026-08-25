@@ -352,3 +352,30 @@ def test_svm_probability_output_has_expected_shape():
         rtol=1e-6,
         atol=1e-6,
     )
+
+
+def test_random_forest_is_reproducible_with_fixed_seed():
+    from sklearn.ensemble import RandomForestClassifier
+
+    X = np.array([
+        [0.0, 0.0], [1.0, 1.0], [2.0, 2.0], [3.0, 3.0],
+        [0.1, 0.1], [1.1, 1.1], [2.1, 2.1], [3.1, 3.1],
+    ])
+    y = np.array([0, 1, 2, 3, 0, 1, 2, 3])
+
+    model_1 = RandomForestClassifier(
+        n_estimators=20,
+        random_state=42,
+    )
+    model_2 = RandomForestClassifier(
+        n_estimators=20,
+        random_state=42,
+    )
+
+    model_1.fit(X, y)
+    model_2.fit(X, y)
+
+    predictions_1 = model_1.predict(X)
+    predictions_2 = model_2.predict(X)
+
+    np.testing.assert_array_equal(predictions_1, predictions_2)
