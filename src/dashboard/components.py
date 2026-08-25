@@ -83,3 +83,12 @@ def render_alert(message: str, level: str = "info") -> None:
         )
 
     renderer(message)
+
+
+def render_section(title: str, subtitle: str = "") -> None:
+    """Render a consistent dashboard section."""
+    st.divider()
+    st.markdown(f"### {title}")
+
+    if subtitle:
+        st.caption(subtitle)

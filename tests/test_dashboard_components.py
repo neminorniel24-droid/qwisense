@@ -32,3 +32,9 @@ def test_alert_rejects_unknown_level():
 
     with pytest.raises(ValueError, match="level must be"):
         render_alert("test", level="unknown")
+
+
+def test_section_component_is_importable():
+    from src.dashboard.components import render_section
+
+    assert callable(render_section)
